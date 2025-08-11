@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review</title>
+    <style>
+        #mainpicture {
+            width: 50px;
+        }
+
+        img {
+
+        }
+
+        ul li {
+            color: salmon;
+        }
+    </style>
+</head>
+<body>
+    <img id="mainpicture" src="./foto.png" alt="foto">
+    <ul>
+        <li class="catname">Angel</li>
+        <li class="catname">Daemon</li>
+    </ul>
+    <script>
+        var cat = {
+            name : "sity",
+            age : 100,
+            legs : 3,
+            color : "orange"
+        };
+        console.log(cat);
+
+        var calculateFoodNeeded = function(numDays) {
+            return numDays * 3;
+        };
+
+        function calculateFoodNeeded(numDays) {
+            return numDays * 3;
+        };
+
+        var calculateFoodNeeded = (numDays) => {
+            return numDays * 3;
+        };
+
+        var makeFunnyName = function(firstName, lastName) {
+            return "Mister " + firstName + " Mc" + lastName + "Pants";
+        };
+        
+        console.log(makeFunnyName("Winston", "Hopper"));
+    </script>
+</body>
+</html>

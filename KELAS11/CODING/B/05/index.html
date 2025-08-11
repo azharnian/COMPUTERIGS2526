@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
+
+    <h1 id="name"></h1>
+
+    <table>
+        <tr>
+            <th>
+                Type
+            </th>
+            <td id="types"></td>
+        </tr>
+        <tr>
+            <th>Abilities</th>
+            <td id="abilities"></td>
+        </tr>
+        <tr>
+            <th>Sprites</th>
+            <td id="sprites"></td>
+        </tr>
+    </table>
+
+    <script>
+
+    function renderData(data)
+    {
+        document.getElementById("name").innerHTML = data.name;
+        document.getElementById("types").innerHTML = data.types.map( item => `<p>${item.type.name}</p>`)
+
+        document.getElementById("abilities").innerHTML = data.abilities.map(item => `
+            <p>${item.ability.name}</p>
+            <a href="${item.ability.url}">detail</a>   
+        `)
+
+        document.getElementById("sprites").innerHTML =  `
+            <p>Default</p>
+            <img src="${data.sprites.front_default}" />
+
+            <p>Back Default</p>
+            <img src="${data.sprites.back_default}" />
+        `
+    }
+
+    fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+        .then(res => res.json())
+        .then(data => {
+            renderData(data);
+        })
+
+    </script>
+   
+</body>
+</html>

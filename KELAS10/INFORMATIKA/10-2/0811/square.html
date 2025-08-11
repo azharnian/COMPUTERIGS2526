@@ -1,0 +1,19 @@
+<script>
+    function square(x)
+    {
+        let y = x * x;
+        return y;
+    }
+
+    function sum_of_squares(x, y, z)
+    {
+        return square(x) + square(y) + square(z);
+    }
+
+    let a = prompt("enter a :");
+    let b = prompt("enter b :");
+    let c = prompt("enter c :");
+
+    let result = sum_of_squares(a, b, c);
+    console.log(result);
+</script>

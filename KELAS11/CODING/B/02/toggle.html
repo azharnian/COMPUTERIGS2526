@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px red solid;
+        }
+
+        button#switch::after {
+            content: "Dark Mode";
+        }
+
+        .box.dark {
+            background-color: black;
+        }
+
+        button#switch.dark::after{
+            content: "Light Mode";
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="switch"></button>
+    <script>
+        const switchBtn = document.getElementById("switch");
+        const box = document.querySelector(".box");
+
+        switchBtn.addEventListener("click", ()=>{
+            box.classList.toggle("dark");
+            switchBtn.classList.toggle("dark");
+        })
+    </script>
+</body>
+</html>

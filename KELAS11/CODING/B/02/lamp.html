@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lamp {
+            width: 200px;
+            height: 400px;
+            background-image: url("off.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .lamp.dark {
+            background-image: url("on.jpg");
+        }
+
+        button {
+            display: inline-block;
+            padding: 0;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            font-size: 30px;
+        }
+
+        button#switch::after {
+            content: "✅";
+        }
+
+        button#switch.dark::after {
+            content: "❌";
+        }
+    </style>
+</head>
+<body>
+    <div class="lamp"></div>
+    <button id="switch"></button>
+
+    <script>
+        const lamp = document.querySelector(".lamp");
+        const switchBtn = document.getElementById("switch");
+
+        switchBtn.addEventListener("click", ()=>{
+            lamp.classList.toggle("dark");
+            switchBtn.classList.toggle("dark");
+        })
+    </script>
+</body>
+</html>

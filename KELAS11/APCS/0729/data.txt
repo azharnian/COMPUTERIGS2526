@@ -1,0 +1,12 @@
+CREATE TABLE users (
+ id INTEGER PRIMARY KEY,
+ username TEXT,
+ email TEXT );
+ 
+INSERT INTO users (
+ username, email) 
+ VALUES (
+ 'john_doe', 'john@gmail.com');
+ 
+.mode table
+SELECT * FROM users;

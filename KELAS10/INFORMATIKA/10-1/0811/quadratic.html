@@ -1,0 +1,19 @@
+<script>
+    // x^2 + 5x + 6 => (x + 2)(x + 3) => x = -2 or x = -3
+    a = prompt("a : ");
+    b = prompt("b : ");
+    c = prompt("c : ");
+    
+    d = b**2 - 4*a*c;
+
+    if (d > 0)
+    {
+        console.log("Two real roots");
+    } else if (d < 0)
+    {
+        console.log("No real roots");
+    } else
+    {
+        console.log("One repeated root");
+    }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dark {
+            background-color: black;
+            color: white;
+        }
+
+        button.btn::after {
+            content: "dark mode";
+        }
+
+        button.btn.dark::after {
+            content:  "light mode";
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <button class="btn"></button>
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        div {
+            height: 100px;
+            width: 100px;
+            margin: 0px auto;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        div.box {
+            background-color: salmon;
+        }
+
+        div.circle {
+            background-color: yellowgreen;
+            border-radius: 50%;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Hello, DOM!</h1>
+    <div class="box">
+        BOX
+    </div>
+    <div class="circle">
+        CIRCLE
+    </div>
+    <script>
+        document.querySelector(".box").addEventListener("click", function(){
+            this.style.backgroundColor = "black";
+        });
+
+        document.querySelector(".circle").addEventListener("click", function(){
+            this.style.borderRadius = "0%";
+        });
+
+    </script>
+</body>
+</html>

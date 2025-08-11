@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Identity</h1>
+    <div>
+        <p>Name : <span id="name"></span></p>
+        <p>Age : <span id="age"></span></p>
+        <p>Country : <span id="country"></span></p>
+        <p>Sex : <span id="sex"></span></p>
+        <p>Hobby : </p>
+        <ul id="hobbies">
+
+        </ul>
+    </div>
+    <script>
+        const name = document.getElementById("name");
+        const age = document.getElementById("age");
+        const country = document.getElementById("country");
+        const sex = document.getElementById("sex");
+        const hobbies = document.getElementById("hobbies");
+
+        fetch("/data.json")
+            .then(res => res.json())
+            .then(data => {
+                name.innerHTML = data.name;
+                age.innerHTML = data.age;
+                country.innerHTML = data.country;
+                sex.innerHTML = data.sex;
+                hobbies.innerHTML = data.hobbies;
+            })
+    </script>
+</body>
+</html>

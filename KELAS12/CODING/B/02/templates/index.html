@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Garden Palembang</title>
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+  {% include "includes/header.html"%}
+
+  <section class="main" id="about">
+    <div class="container">
+      <h2>Solusi Otomatisasi Kebun Anda</h2>
+      <p>Smart Garden Palembang adalah penyedia solusi dan API untuk sistem monitoring kebun pintar di wilayah tropis, terkhusus di kota Palembang.</p>
+      <a href="#api" class="btn">Lihat Dokumentasi API</a>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h2>Fitur Unggulan</h2>
+      <ul class="features-list">
+        <li>Sensor kelembaban dan suhu real-time</li>
+        <li>Integrasi dengan sistem irigasi otomatis</li>
+        <li>Dashboard web untuk monitoring kebun</li>
+        <li>API terbuka untuk developer</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="api">
+    <div class="container">
+      <h2>API Kami</h2>
+      <p>Kami menyediakan RESTful API yang memungkinkan integrasi data kebun dengan aplikasi Anda, baik untuk analisis, otomasi, atau IoT.</p>
+      <code>GET https://api.smartgardenpalembang.id/v1/sensors</code>
+      <p>Dokumentasi lengkap tersedia saat Anda mendaftar sebagai partner.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Hubungi Kami</h2>
+      <form id="contactForm">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <label for="message">Pesan:</label>
+        <textarea id="message" required></textarea>
+        <button type="submit">Kirim</button>
+      </form>
+      <p id="formMsg"></p>
+    </div>
+  </section>
+
+  {% include "includes/footer.html"%}
+
+  <script src="static/script.js"></script>
+</body>
+</html>

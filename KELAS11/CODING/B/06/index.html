@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+
+    <style>
+        table {
+            display: none;
+        }
+
+        h1#loadingText {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="" id="searchForm">
+        <input type="text" id="pokemonName">
+        <button>Search</button>
+    </form>
+
+    <h1 id="loadingText">
+        Loading...
+    </h1>
+   
+    <table>
+        <h1 id="name"></h1>
+        <tr>
+            <th>
+                Type
+            </th>
+            <td id="types"></td>
+        </tr>
+        <tr>
+            <th>Abilities</th>
+            <td id="abilities"></td>
+        </tr>
+        <tr>
+            <th>Sprites</th>
+            <td id="sprites"></td>
+        </tr>
+    </table>
+
+    <script>
+
+    function renderData(data)
+    {
+        document.getElementById("name").innerHTML = data.name;
+        document.getElementById("types").innerHTML = data.types.map( item => `<p>${item.type.name}</p>`)
+
+        document.getElementById("abilities").innerHTML = data.abilities.map(item => `
+            <p>${item.ability.name}</p>
+            <a href="${item.ability.url}">detail</a>   
+        `)
+
+        document.getElementById("sprites").innerHTML =  `
+            <p>Default</p>
+            <img src="${data.sprites.front_default}" />
+
+            <p>Back Default</p>
+            <img src="${data.sprites.back_default}" />
+        `
+        document.getElementById("loadingText").style.display = "none";
+        document.querySelector("table").style.display = "block";
+    }
+
+    document.getElementById("searchForm").addEventListener("submit", (event)=>{
+        event.preventDefault();
+
+        document.getElementById("loadingText").style.display = "block";
+        document.querySelector("table").style.display = "none";
+
+        const value = document.getElementById("pokemonName").value;
+        fetch(`https://pokeapi.co/api/v2/pokemon/${value}`)
+            .then(res => res.json())
+            .then(data => {
+                renderData(data);
+            })
+            .catch(error => {
+                document.getElementById("loadingText").style.display = "none";
+                alert("Not Found!")
+            });
+    })
+
+    
+
+    </script>
+   
+</body>
+</html>

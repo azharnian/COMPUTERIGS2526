@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Realtime Circle Game</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <style>
+        html, body { margin:0; height:100%; background:#111; }
+        canvas { display:block; width:100%; height:100%; }
+    </style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+<script>
+    const roomId = "{{ room_id }}";
+    const socket = io();
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const playerColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+    let players = {};
+
+    socket.emit("join_room_game", { room_id: roomId, color: playerColor });
+
+    socket.on("update_players", function(data) {
+        players = data;
+    });
+
+    window.addEventListener("mousemove", (e) => {
+        socket.emit("move_circle", { 
+            room_id: roomId, 
+            x: e.clientX, 
+            y: e.clientY 
+        });
+    });
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let id in players) {
+            let p = players[id];
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 20, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+            ctx.closePath();
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function renderData(data){
+            document.getElementById("name").innerHTML = data.name;
+            document.getElementById("age").innerHTML = data.age;
+            document.getElementById("country").innerHTML = data.country;
+            document.getElementById("sex").innerHTML = data.sex;
+            document.getElementById("hobbies").innerHTML = data.hobbies.map(hobby => (
+                    `<li> ${hobby} </li>`
+                )
+            )
+        }
+    </script>
+</head>
+<body>
+    <h1>Identity</h1>
+    <div>
+        <p>Name : <span id="name"></span></p>
+        <p>Age : <span id="age"></span></p>
+        <p>Country : <span id="country"></span></p>
+        <p>Sex : <span id="sex"></span></p>
+        <p>Hobby : </p>
+        <ul id="hobbies">
+
+        </ul>
+    </div>
+    <script>
+        fetch("/data.json")
+            .then(res => res.json())
+            .then(data => {
+                renderData(data);
+            })
+    </script>
+</body>
+</html>

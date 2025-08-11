@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sayHello(){
+            alert("Hello, world!");
+        }
+
+        function sayGoodbye()
+        {
+            alert("Goodbye, ....!");
+        }
+
+        function tambahSatu()
+        {
+            number = number + 1;
+            document.querySelector("h1").innerHTML = number;
+        }
+
+        let number = 0;
+        
+    </script>
+</head>
+<body>
+    <button onclick="sayHello()">Click ME!</button>
+    <button onclick="sayGoodbye()">Easter Egg</button>
+
+    <h1>0</h1>
+    <button id="counter" onclick="tambahSatu()">Tambah</button>
+
+    <script>
+        
+    </script>
+</body>
+</html>

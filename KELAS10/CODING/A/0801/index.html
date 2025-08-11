@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: salmon;
+            margin: 0px auto; /* trik untuk rata tengah komponen non-text */
+            text-align:  center;
+            line-height: 100px;
+        }
+
+        div.box {
+            
+        }
+
+        div.circle {
+            
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <div class="box">
+        🎁
+    </div>
+    <div class="circle">
+        ❤️
+    </div>
+
+    <script>
+        document.querySelector(".box").addEventListener("click", function(){
+            this.style.backgroundColor = "black";
+        })
+    </script>
+</body>
+</html>

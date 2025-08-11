@@ -1,0 +1,7 @@
+{
+    "name" : "John",
+    "age" : 10,
+    "country" : "US",
+    "sex" : "male",
+    "hobbies" : ["traveling", "reading"]
+}

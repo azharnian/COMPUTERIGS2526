@@ -1,0 +1,10 @@
+CREATE TABLE airports (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    code TEXT,
+    city TEXT);
+
+INSERT INTO airports (
+    code,
+    city
+) VALUES 
+    ('JFK', 'Ney York')

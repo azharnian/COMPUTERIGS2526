@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./off.png" alt="">
+    <div>
+        <button id="on">ON</button>
+        <button id="off">OFF</button>
+    </div>
+    <script>
+        const onBtn = document.getElementById("on");
+        const offBtn = document.getElementById("off");
+        const lamp = document.querySelector("img");
+
+        onBtn.addEventListener("click", ()=> {
+            lamp.src = "./on.jpg";
+        })
+
+        offBtn.addEventListener("click", ()=> {
+            lamp.src = "./off.png";
+        })
+    </script>
+</body>
+</html>
