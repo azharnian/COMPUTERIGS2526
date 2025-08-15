@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
+    <form action="">
+        <input type="text">
+        <button>Search Your Pokemon</button>
+    </form>
+    <div class="result">
+
+    </div>
+    <script>
+        /*
+        // async
+        let counter = 0;
+        const myInterval = window.setInterval(function(){
+            if (counter == 10){
+                window.clearInterval(myInterval);
+            }
+            console.log(counter);
+            counter++;
+        }, 1000);
+
+        // sync
+        for (let i = 0; i <= 10; i++)
+        {
+            console.log(i);
+        }
+        */
+        function print_0_to_3()
+        {
+            for(let i = 0; i <= 3; i++)
+            {
+                console.log(i);
+            }
+        }
+
+        function print_5_to_10()
+        {
+            for(let i = 5; i <= 10; i++)
+            {
+                console.log(i);
+            }
+        }
+
+        function print_4_in_3s()
+        {
+            window.setTimeout(()=>{
+                console.log(4);
+            }, 3000);
+        }
+
+        print_0_to_3();
+        print_4_in_3s();
+        print_5_to_10();
+        
+        async function getPokemon(pokemonName) {
+            
+            const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        }
+
+        getPokemon("pikachu");
+
+        document.querySelector("form").addEventListener("submit", async (event) =>{
+            event.preventDefault();
+
+            const pokemonName = document.querySelector("input").value;
+
+            try {
+                const data = await getPokemon(pokemonName);
+                document.querySelector(".result").innerHTML = `
+                        <h1>${data.name}</h1>
+                        <img src=${data.sprites.front_default} >
+                        <img src=${data.sprites.back_default} >
+                    `;
+            } catch (error) {
+                document.querySelector(".result").innerHTML = `
+                        <h1>Sorry... error!</h1>
+                        <p>details : ${error}</p>
+                `;
+            }
+        })
+    </script>
+</body>
+</html>

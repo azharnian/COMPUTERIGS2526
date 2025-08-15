@@ -86,53 +86,60 @@
             document.querySelector(".result").style.display = "none";
         }
 
-        document.getElementById("searchForm").addEventListener("submit", function(e){
+        async function getPokemon(name) {
+            const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
+
+
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Error fetching ${name}: ${response.status}`);
+            }
+
+            const data = await response.json();
+            return data;
+        }
+
+        document.getElementById("searchForm").addEventListener("submit", async function(e){
             e.preventDefault();
             const pokemonName = document.getElementById("pokemonName").value;
             
-            const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-
-            hideError()
+            hideError();
+            hideResult();
             showLoading();
 
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    hideLoading();
-                    renderResult(data);
-                })
-                .catch(error => {
-                    hideLoading();
-                    hideResult();
-                    showError(error);
-                })
+            try {
+                const data = await getPokemon(pokemonName);
+                hideLoading();
+                renderResult(data);
+            } catch (err) {
+                hideLoading();
+                hideResult();
+                showError(err);
+            }
         });
 
 
         document.addEventListener("DOMContentLoaded", function(){
             let pokemons = [];
 
-            likes.forEach( pokeId => {
-                const url = `https://pokeapi.co/api/v2/pokemon/${pokeId}`;
-
-                fetch(url)
-                    .then(res => res.json())
-                    .then(data => {
-                        pokemons.push(data);
-                    })
-                    .then(()=>{
-                        document.querySelector(".pokemons").innerHTML = pokemons.map(pokemon => (
-                            `<img src="${pokemon.sprites.front_default}" />`
-                        ));
-                    })
-                    .catch(error => {
-                        document.querySelector(".pokemons").innerHTML = `
+            likes.forEach( async (pokeId) => {
+                try {
+                    const data = await getPokemon(pokeId);
+                    pokemons.push(data);
+                    document.querySelector(".pokemons").innerHTML = pokemons.map(pokemon => (
+                        `<img src="${pokemon.sprites.front_default}" />`
+                    ));
+                }
+                catch (err) {
+                    document.querySelector(".pokemons").innerHTML = `
                         <h1>Failed to fetch</h1>
                         <p>Error : ${error}</p>
                         `
-                    })
+                }
+                
             })
         });
+        
     </script>
 </body>
 </html>
