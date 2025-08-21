@@ -1,0 +1,26 @@
+
+Preparation
+
+1. Windows Only : Terminal menggunakan gitbash
+download pilih x64 standalone
+
+2. Restart VSCode, buka kembali, dan tekan 
+CTRL + SHIFT + P , pilih Terminal :select default profile
+, pilih Git Bash
+
+3. Check NodeJS, terminal ketik 
+node --version, jika tidak ada, instal dulu, ke website,
+pilih installer .msi
+
+4. Memulai React Project (1, 2, 3 selesai)
+npm create vite@latest
+install ? y
+react-Project
+framework : React
+variant : JavaScript
+
+Tanda sukses, muncul text
+cd react-project
+npm install
+npm run dev
+
