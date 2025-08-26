@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
+    
+    <script>
+        /*
+        for(let i = 0; i <= 10; i++)
+        {
+            console.log(i);
+        }
+        */
+
+        /*
+        function print_0_to_5()
+        {
+            for (let i = 0; i <= 5 ; i++)
+            {
+              console.log(i);  
+            }
+        }
+
+        function print_6()
+        {
+            window.setTimeout(()=>{
+                console.log(6);
+            }, 2000);
+        }
+        
+        function print_7_to_10()
+        {
+            for (let i = 7; i <= 10; i++)
+            {
+                console.log(i);
+            }
+        }
+
+        print_0_to_5();
+        print_6();
+        print_7_to_10();
+        */
+        
+        // let i = 0;
+        // const myCounter = window.setInterval(function(){
+        //     console.log(i);
+        //     i++;
+        //     if (i > 10)
+        //         window.clearInterval(myCounter);
+        // }, 1000);
+
+        async function getPokemon(pokemon)
+        {
+            const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+
+            try {
+                const response = await fetch(url);
+
+                if (!response.ok)
+                {
+                    throw new Error(`Error : ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                console.log(data);
+                // return data;
+            } catch (error) {
+                console.log(`Error : ${error}`);
+            }  
+        }
+
+        getPokemon("pikachu");
+    </script>
+</body>
+</html>

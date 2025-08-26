@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is contact!</h1>
+
+    {% if success %}
+    <h2>Add new user, success!</h2>
+    <p>Your new user is {{ user["username"] }}.</p>
+    {% endif %}
+
+    {% if error %}
+    <h2>Error</h2>
+    <p style="color: red;">{{error}}</p>
+    {% endif %}
+
+    <form action="" method="post">
+        <input name="username" type="text" placeholder="username" required>
+        <input name="phone" type="text" placeholder="phone" required>
+        <input name="mail" type="text" placeholder="mail" required>
+        <button>submit</button>
+    </form>
+</body>
+</html>
