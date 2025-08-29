@@ -4,10 +4,6 @@ export default function CounterCard()
 {
   const [counter, setCounter] = useState(10);
 
-//   useEffect(()=>{
-//     setCounter(100);
-//   }, []);
-
   const handlePlusBtnClick = () => {
     setCounter(counter + 1);
   }
@@ -18,9 +14,12 @@ export default function CounterCard()
 
   return (
     <>
-      <h1>This is counter {counter}</h1>
-      <button onClick={handlePlusBtnClick}>+</button>
-      <button onClick={handleMinBtnClick}>-</button>
+      <h1 className="heading-counter-card">This is counter {counter}</h1>
+      <div className="container-btn">
+          <button onClick={handlePlusBtnClick}>+</button>
+          <button onClick={handleMinBtnClick}>-</button>
+      </div>
+      
     </>
   )
 }

@@ -1,0 +1,22 @@
+h1.heading-counter-card {
+    font-size: 30px;
+    color: salmon;
+    text-align: center;
+}
+
+div.container-btn {
+    width: 20%;
+    margin: 0px auto;
+    /* background-color: yellowgreen; */
+    padding: 5px;
+    text-align: center;
+}
+
+div.container-btn button {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    background-color: salmon;
+    margin: 0px 5px;
+}
