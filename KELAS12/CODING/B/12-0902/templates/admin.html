@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        table, th, td, tr {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, admin!</h1>
+    {% if contacts %}
+
+    <h2>Your contacts/customers</h2>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Msg</th>
+            <th colspan="2">Aksi</th>
+        </tr>
+
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact[0] }}</td>
+            <td>{{ contact[1] }}</td>
+            <td>{{ contact[2] }}</td>
+            <td>{{ contact[3] }}</td>
+            <td>
+                <a href="#" id="done" data-contact="{{contact[0]}}"  > ✅ </a>
+            </td>
+            <td>
+                <a href="#" id="reject" data-contact="{{contact[0]}}">❌</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% endif %}
+
+    <script>
+        document.querySelectorAll("#done").forEach(function(btn){
+            btn.addEventListener("click", function(){
+                const response = confirm("Are you sure to set 'done' ?");
+            })
+        })
+
+        document.querySelectorAll("#reject").forEach(function(btn){
+            btn.addEventListener("click", function(){
+                const apprv = confirm(`Are you sure to set 'reject' for contact with id ${this.dataset.contact} ?`);
+
+                if (apprv)
+                {
+                    fetch("/admin", {
+                        method : "POST",
+                        headers : {
+                            "Content-Type" : "application/json",
+                        },
+                        body : JSON.stringify( { action : "delete", id : this.dataset.contact})
+                    })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error));
+                }
+            })
+        })
+    </script>
+</body>
+</html>

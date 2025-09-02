@@ -10,5 +10,8 @@ public class Q03{
 
         Tree treeThree = new Tree("mahoni");
         System.out.println(treeThree);
+
+        // Tree treeFour = new Tree();
+        // System.out.println(treeFour);
     }
 }

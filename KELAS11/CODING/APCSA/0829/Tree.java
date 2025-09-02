@@ -4,7 +4,6 @@ public class Tree {
     private int rateOfGrowth;
 
     // Constructor
-
     public Tree(String n, double h, int r)
     {
         name = n;

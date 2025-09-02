@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Router Sederhana</title>
+  <style>
+    nav a { margin-right: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" data-page="home">Home</a>
+    <a href="/about" data-page="about">About</a>
+    <a href="/contact" data-page="contact">Contact</a>
+  </nav>
+
+  <main id="app"></main>
+
+  <script>
+    const app = document.getElementById("app");
+
+    function render(page) {
+      if (page === "home") 
+        app.innerHTML = "<h1>Halaman Home</h1><p>Selamat datang!</p>";
+      else if (page === "about") 
+        app.innerHTML = "<h1>Halaman About</h1><p>Tentang kami...</p>";
+      else if (page === "contact") 
+        app.innerHTML = "<h1>Halaman Contact</h1><p>Hubungi kami di sini.</p>";
+      else 
+        app.innerHTML = "<h1>404 - Tidak ditemukan</h1>";
+    }
+
+    function pathToPage(path) {
+      if (path === "/" || path === "") return "home";
+      if (path === "/about") return "about";
+      if (path === "/contact") return "contact";
+      return "404";
+    }
+
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const page = e.target.dataset.page;
+        const url = e.target.getAttribute("href");
+        history.pushState({ page }, "", url);
+        render(page);
+      });
+    });
+
+    window.onpopstate = function(e) {
+      const page = e.state?.page ?? pathToPage(location.pathname);
+      render(page);
+    };
+
+    const initialPage = pathToPage(location.pathname);
+    history.replaceState({ page: initialPage }, "", location.pathname);
+    render(initialPage);
+  </script>
+</body>
+</html>
