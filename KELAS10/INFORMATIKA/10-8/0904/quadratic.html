@@ -1,0 +1,22 @@
+<script>
+    // d = b^2 -4ac
+    // y = ax^2 + bx + c
+
+    a = prompt("Enter Coef a : ");
+    b = prompt("Enter Coef b : ");
+    c = prompt("Enter Coef c : ");
+
+    d = b ** 2 - 4 * a * c;
+    
+    // two real roots or no real root or one repeated root
+    if (d > 0)
+    {
+        alert("Two real roots");
+    } else if (d < 0)
+    {
+        alert("No real root");
+    } else if (d == 0)
+    {
+        alert("One repeated root");
+    }
+</script>
