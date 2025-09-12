@@ -1,78 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
-    <style>
-        table, th, td, tr {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Page</title>
+  <style>
+    table, th, td, tr { border: 1px solid black; border-collapse: collapse; }
+    th, td { padding: 10px; }
+    a.action { text-decoration: none; cursor: pointer; }
+  </style>
 </head>
 <body>
-    <h1>Welcome, admin!</h1>
-    {% if contacts %}
+  <h1>Welcome, admin!</h1>
 
+  {% if contacts and contacts|length > 0 %}
     <h2>Your contacts/customers</h2>
     <table>
-        <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Msg</th>
-            <th colspan="2">Aksi</th>
-        </tr>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Msg</th>
+        <th colspan="2">Aksi</th>
+      </tr>
 
-        {% for contact in contacts %}
-        <tr>
-            <td>{{ contact[0] }}</td>
-            <td>{{ contact[1] }}</td>
-            <td>{{ contact[2] }}</td>
-            <td>{{ contact[3] }}</td>
-            <td>
-                <a href="#" id="done" data-contact="{{contact[0]}}"  > ✅ </a>
-            </td>
-            <td>
-                <a href="#" id="reject" data-contact="{{contact[0]}}">❌</a>
-            </td>
-        </tr>
-        {% endfor %}
+      {% for contact in contacts %}
+      <!-- Jika pakai row_factory dict: contact['id'] dst.
+           Jika tetap tuple, gunakan contact[0], contact[1], ... -->
+      <tr id="data-{{ contact['id'] if contact.__class__.__name__ == 'Row' else contact[0] }}">
+        <td>{{ contact['id'] if contact.__class__.__name__ == 'Row' else contact[0] }}</td>
+        <td>{{ contact['name'] if contact.__class__.__name__ == 'Row' else contact[1] }}</td>
+        <td>{{ contact['email'] if contact.__class__.__name__ == 'Row' else contact[2] }}</td>
+        <td>{{ contact['msg'] if contact.__class__.__name__ == 'Row' else contact[3] }}</td>
+        <td>
+          <a href="#" class="action btn-done"
+             data-contact="{{ contact['id'] if contact.__class__.__name__ == 'Row' else contact[0] }}">✅</a>
+        </td>
+        <td>
+          <a href="#" class="action btn-reject"
+             data-contact="{{ contact['id'] if contact.__class__.__name__ == 'Row' else contact[0] }}">❌</a>
+        </td>
+      </tr>
+      {% endfor %}
     </table>
+  {% else %}
+    <p>Belum ada data kontak.</p>
+  {% endif %}
 
-    {% endif %}
+  <script>
+    // Handler tombol DONE (placeholder; tambahkan aksi sesuai kebutuhan)
+    document.querySelectorAll(".btn-done").forEach(function(btn){
+      btn.addEventListener("click", function(e){
+        e.preventDefault();
+        const ok = confirm("Are you sure to set 'done'?");
+        if (ok) {
+          const id = this.dataset.contact;
+          // TODO: panggil endpoint PUT/PATCH jika ada status 'done'
+          alert(`(Demo) Set done for id ${id}`);
+        }
+      });
+    });
 
-    <script>
-        document.querySelectorAll("#done").forEach(function(btn){
-            btn.addEventListener("click", function(){
-                const response = confirm("Are you sure to set 'done' ?");
-            })
+    // Handler tombol REJECT -> panggil DELETE /admin
+    document.querySelectorAll(".btn-reject").forEach(function(btn){
+      btn.addEventListener("click", function(e){
+        e.preventDefault();
+        const id = this.dataset.contact;
+        const ok = confirm(`Are you sure to set 'reject' for contact with id ${id}?`);
+        if (!ok) return;
+
+        fetch("/admin", {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id })
         })
-
-        document.querySelectorAll("#reject").forEach(function(btn){
-            btn.addEventListener("click", function(){
-                const apprv = confirm(`Are you sure to set 'reject' for contact with id ${this.dataset.contact} ?`);
-
-                if (apprv)
-                {
-                    fetch("/admin", {
-                        method : "POST",
-                        headers : {
-                            "Content-Type" : "application/json",
-                        },
-                        body : JSON.stringify( { action : "delete", id : this.dataset.contact})
-                    })
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch(error => console.log(error));
-                }
-            })
+        .then(async (response) => {
+          const data = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            throw new Error(data?.msg || "Delete failed");
+          }
+          // Hapus baris berdasarkan id yang dikembalikan backend
+          const row = document.getElementById(`data-${data.id}`);
+          if (row) row.remove();
         })
-    </script>
+        .catch(err => {
+          console.error(err);
+          alert(err.message || "Error while deleting");
+        });
+      });
+    });
+  </script>
 </body>
 </html>

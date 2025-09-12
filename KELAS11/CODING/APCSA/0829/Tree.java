@@ -4,6 +4,13 @@ public class Tree {
     private int rateOfGrowth;
 
     // Constructor
+    public Tree()
+    {
+        name = "default-name";
+        height = 170.0;
+        rateOfGrowth = 10;
+    }
+
     public Tree(String n, double h, int r)
     {
         name = n;
