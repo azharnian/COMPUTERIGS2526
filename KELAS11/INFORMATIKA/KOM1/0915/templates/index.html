@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <!-- <link rel="stylesheet" href="./static/style.css"> -->
+</head>
+<body>
+    {% if msg %}
+    <p>{{ msg }}</p>
+    {% endif %}
+
+    <h1>List of users</h1>
+    {% if users %}
+    <ul>
+        {% for user in users %}
+        <li>{{ user[0] }} - {{user[1]}} - {{ user[2] }} - {{ user[3] }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="" method="post">
+        <h1>Form User Registration</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, corrupti?</p>
+        <div>
+            <label for="first">First Name</label>
+            <input type="text" name="first" id="first">
+        </div>
+
+        <div>
+            <label for="last">Last Name</label>
+            <input type="text" name="last" id="last">
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+        </div>
+        
+        <button>Submit</button>
+    </form>
+</body>
+</html>

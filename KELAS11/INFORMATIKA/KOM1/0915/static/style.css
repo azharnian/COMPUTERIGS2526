@@ -1,0 +1,190 @@
+/* ========== Reset & Tokens ========== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root{
+  --bg: #0b0c10;
+  --panel: #13161b;
+  --panel-2: #1b1f26;
+  --text: #e9eef5;
+  --muted: #9aa4b2;
+  --primary: #4f8cff;
+  --primary-pressed:#3c6fdd;
+  --ring: 0 0 0 4px rgba(79,140,255,.25);
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+/* Light mode (otomatis ikut OS) */
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #f6f7fb;
+    --panel: #ffffff;
+    --panel-2: #f2f4f7;
+    --text: #111827;
+    --muted: #6b7280;
+    --primary: #2563eb;
+    --primary-pressed:#1e4fc6;
+    --shadow: 0 10px 30px rgba(17,24,39,.08);
+  }
+}
+
+/* ========== Page layout ========== */
+html, body { }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  color: var(--text);
+  background: radial-gradient(1000px 600px at 50% -10%, rgba(79,140,255,.25), transparent 50%) , var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 20px 72px;
+  line-height: 1.55;
+}
+
+/* Karena HTML tidak punya wrapper, atur semua anak body memiliki lebar yang sama */
+body > *{
+  width: min(900px, 100%);
+}
+
+/* ========== Flash / Message ========== */
+body > p:first-of-type{
+  background: linear-gradient(0deg, rgba(79,140,255,.08), rgba(79,140,255,.08)), var(--panel);
+  border: 1px solid rgba(79,140,255,.25);
+  color: var(--text);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 0 0 18px;
+}
+
+/* ========== Headings ========== */
+h1{
+  margin: 0 0 14px;
+  font-size: clamp(24px, 3vw, 30px);
+  letter-spacing: .2px;
+}
+
+/* ========== Users List ========== */
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 28px;
+  background: var(--panel);
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Header “List of users” diberi jarak dari panel */
+h1 + ul { margin-top: 10px; }
+
+li{
+  padding: 14px 16px;
+  display: grid;
+  gap: 10px;
+  /* 4 kolom mengikuti 4 data pada {{ user[0] }}-{{ user[3] }} */
+  grid-template-columns: 1fr 1fr 1.2fr 1.2fr;
+  align-items: center;
+  background: transparent;
+  border-bottom: 1px solid rgba(148,163,184,.18);
+}
+li:last-child{ border-bottom: none; }
+
+/* Responsif: kolom menumpuk di layar kecil */
+@media (max-width: 640px){
+  li{ grid-template-columns: 1fr; }
+}
+
+/* ========== Card Form ========== */
+form{
+  background: var(--panel);
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow: var(--shadow);
+  padding: 22px 20px;
+}
+
+form > h1{
+  margin: 0 0 6px;
+  font-size: clamp(22px, 2.5vw, 26px);
+}
+
+form > p{
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+/* ========== Fields ========== */
+form div{
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+label{
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+}
+
+input[type="text"],
+input[type="email"],
+input:not([type]){
+  appearance: none;
+  width: 100%;
+  border: 1px solid rgba(148,163,184,.35);
+  background: var(--panel-2);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease, background .2s ease;
+}
+input::placeholder{ color: var(--muted); }
+
+input:focus{
+  border-color: var(--primary);
+  box-shadow: var(--ring);
+}
+
+/* ========== Button ========== */
+button{
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, var(--primary), var(--primary-pressed));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  transition: transform .06s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 18px rgba(37,99,235,.32);
+}
+
+button:hover{ filter: brightness(1.02); }
+button:active{ transform: translateY(1px) scale(.995); }
+button:focus-visible{ outline: none; box-shadow: var(--ring); }
+
+/* ========== Small enhancements ========== */
+/* Spasi antar blok besar */
+h1 + ul + form,
+ul + form{ margin-top: 26px; }
+
+/* Scrollbar yang lebih halus (Chromium/WebKit) */
+*::-webkit-scrollbar{ width: 12px; height: 12px; }
+*::-webkit-scrollbar-thumb{
+  background: rgba(148,163,184,.35);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}

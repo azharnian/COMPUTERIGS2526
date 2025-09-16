@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>is it year?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <script>
+        const today = new Date();
+        const h1El = document.querySelector("h1");
+
+        if (today.getDay() === 1 && today.getMonth() === 0)
+        {
+            // alert("YES");
+            h1El.innerHTML = "YES";
+        } else {
+            // alert("NO");
+            h1El.innerHTML = "NO";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>My First HTML</title>
+    </head>
+    <body>
+        <h1 id="textHello">Hello, HTML!</h1>
+        <h1 id="textJS">Hello, Javascript!</h1>
+
+        <h3>Find area of Rectangle</h3>
+        <form id="rectForm">
+            <input type="text" id="length" placeholder="length" style="display: block;">
+            <input type="text" id="width" placeholder="width" style="display: block;">
+            <button>Find</button>
+        </form>
+    
+        <h4>Result : <span id="resFindRect"></span></h4>
+
+        <script>
+            function find_area_rect(h, w)
+            {
+                return h*w;
+            }
+
+            document.getElementById("textHello").innerHTML = "Goodbye, HTML!";
+            document.getElementById("textJS").innerHTML = "Goodbye, JS!";
+
+            document.getElementById("rectForm").addEventListener("submit", (e)=>{
+                e.preventDefault();
+                
+                length = parseInt(document.getElementById("length").value);
+                width = parseInt(document.getElementById("width").value);
+
+                document.getElementById("resFindRect").innerHTML = find_area_rect(length, width);
+            });
+        </script>
+    </body>
+</html>

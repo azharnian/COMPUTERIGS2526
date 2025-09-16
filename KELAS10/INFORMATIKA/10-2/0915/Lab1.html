@@ -1,0 +1,27 @@
+<script>
+    function find_area_rect(width, height)
+    {
+        return width * height;
+    }
+
+    function find_area_trapezoid(h, a, b)
+    {
+        return h * (a + b) /2;
+    }
+
+    function find_area_triangle(a, b, c)
+    {
+        const s = (a + b + c)/2;
+        return Math.sqrt( s * (s-a) * (s-b) * (s-c) );
+    }
+
+    function f_to_c(temperature)
+    {
+        return 5/9 * (temperature - 32);
+    }
+
+    console.log(find_area_rect(10, 20)); // 200
+    console.log(find_area_trapezoid(10, 20, 30));
+    console.log(find_area_triangle(10, 20, 25));
+    console.log(f_to_c(212)); // 100;
+</script>

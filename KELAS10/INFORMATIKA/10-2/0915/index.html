@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Simple Calculator</title>
+    </head>
+    <body>
+        <h1 id="htmlH1">Hello, HTML!</h1>
+
+        <form id="rectForm">
+            <h2>Find Area of Rect</h2>
+            <input type="text" id="rectWidth" placeholder="Width">
+            <input type="text" id="rectHeight" placeholder="Height">
+            <button>Find Area</button>
+
+            <h3>Result : <span id="resAreaRect"></span></h3>
+        </form>
+
+
+        <form id="trapForm">
+            <h2>Find Area of Trapezoid</h2>
+            <input type="text" id="trapA" placeholder="Side A">
+            <input type="text" id="trapB" placeholder="Side B">
+            <input type="text" id="trapHeight" placeholder="Height">
+            <button>Find Area</button>
+
+            <h3>Result : <span id="resAreaTrap"></span></h3>
+        </form>
+        
+        <script>
+
+            function find_area_rect(width, height)
+            {
+                return width * height;
+            }
+
+            function find_area_trapezoid(h, a, b)
+            {
+                return h * (a + b) /2;
+            }
+
+            const rectForm = document.getElementById("rectForm");
+            const rectWidth = document.getElementById("rectWidth");
+            const rectHeight = document.getElementById("rectHeight");
+            const restAreaRect = document.getElementById("resAreaRect");
+
+            rectForm.addEventListener("submit", function(e){
+                e.preventDefault();
+
+                const w = rectWidth.value;
+                const h = rectHeight.value;
+
+                const res = find_area_rect(w, h);
+                restAreaRect.innerHTML = res;
+            } );
+
+            const trapForm = document.getElementById("trapForm");
+            const trapA = document.getElementById("trapA");
+            const trapB = document.getElementById("trapB");
+            const trapHeight = document.getElementById("trapHeight");
+            const restAreaTrap = document.getElementById("resAreaTrap");
+
+            trapForm.addEventListener("submit", function(e){
+                e.preventDefault();
+
+                const a = trapA.value;
+                const b = trapB.value;
+                const h = trapHeight.value;
+
+                const res = find_area_trapezoid(h, a, b);
+                restAreaTrap.innerHTML = res;
+            })
+
+        </script>
+    </body>
+</html>

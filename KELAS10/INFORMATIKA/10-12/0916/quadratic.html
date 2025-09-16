@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Quadratic HTML</title>
+    </head>
+
+    <body>
+        <h1 id="h1Element">Quadratic Calculator</h1> 
+
+        <form id="quadraticForm">
+            <input type="text" id="coefA" placeholder="coef A">
+            <input type="text" id="coefB" placeholder="coef B">
+            <input type="text" id="constC" placeholder="const C">
+
+            <button>Calculate</button>
+
+            <h3 id="resultQuadratic"></h3>
+        </form>
+
+        <script>
+            const h1Element = document.getElementById("h1Element");
+            const quadraticForm = document.getElementById("quadraticForm");
+            const coefA = document.getElementById("coefA");
+            const coefB = document.getElementById("coefB");
+            const constC = document.getElementById("constC");
+            const resultQuadratic = document.getElementById("resultQuadratic");
+
+            quadraticForm.addEventListener("submit", function(e){
+                e.preventDefault();
+
+                // last script for find out discriminant in quadratic equation
+                let A = coefA.value;
+                let B = coefB.value;
+                let C = constC.value;
+
+                const discriminant = B ** 2 - 4 * A * C ;
+
+                if (discriminant < 0)
+                {
+                    resultQuadratic.innerHTML = "No Real Root";
+                } else if (discriminant > 0)
+                {
+                    resultQuadratic.innerHTML = "Two Real Roots";
+                } else if (discriminant == 0)
+                {
+                    resultQuadratic.innerHTML = "One Repeated Root";
+                }
+            });
+        </script>
+    </body>
+</html>

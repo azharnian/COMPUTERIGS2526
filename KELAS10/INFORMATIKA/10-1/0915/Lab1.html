@@ -1,0 +1,25 @@
+<script>
+    function find_area_rect(h, w)
+    {
+        return h*w;
+    }
+
+    const find_area_trapezoid = function(h, a, b){
+        return h*(a+b) / 2;
+    }
+
+    const find_area_trig = (a, b, c) => {
+        const s = (a + b + c)/2;
+        return Math.sqrt( s * (s-a) * (s-b) * (s-c) );
+    }
+
+    function f_to_c(temperature)
+    {
+        return (5/9)*(temperature - 32);
+    }
+
+    console.log("Area of rect is "+find_area_rect(10, 5));
+    console.log("Area of trapezoid is "+find_area_trapezoid(10, 10, 20));
+    console.log("Area of triangle is "+find_area_trig(7, 8, 9));
+    console.log("F to C is "+ f_to_c(212));
+</script>
