@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form {
+            width: 400px;
+            padding: 10px;
+            margin: 0px auto;
+        }
+
+        div {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        input {
+            margin: 0;
+            display: block;
+            width: 100%;
+            height: 30px;
+            font-size: 25px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            margin: 0px auto;
+            font-size: 18px;
+            /* background-color: salmon; */
+            /* border: none; */
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="h1Title">Check Our BMI</h1>
+
+    <form id="bmiForm">
+        <div>
+            <input type="text" name="weight" id="weight" placeholder="Input your weight (kg)">
+        </div>
+        
+        <div>
+            <input type="text" name="height" id="height" placeholder="Input your height (cm)">
+        </div>
+        
+        <button>Check BMI</button>
+    </form>
+
+    <div id="result">
+
+    </div>
+
+    <script>
+        function getBmi(bmi)
+        {
+            if (bmi < 18.5)
+                return "<h1>UNDERWEIGHT 🤷🏻‍♂️</h1>";
+            if (bmi >= 25)
+                return "<h1>OVERWEIGHT 🗿</h1>";
+            if (bmi >= 18.5 && bmi < 25)
+                return "<h1>WITHIN RANGE 🍔</h1>";
+        }
+
+        const h1Title = document.getElementById("h1Title");
+        const bmiForm = document.getElementById("bmiForm");
+        const weight = document.getElementById("weight");
+        const height = document.getElementById("height");
+        const result = document.getElementById("result");
+
+        bmiForm.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            const bmi = weight.value / ((height.value/100)**2);
+            result.innerHTML = getBmi(bmi);
+            bmiForm.reset();
+        });
+
+        h1Title.style.color = "red";
+    </script>
+</body>
+</html>
