@@ -1,10 +1,35 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/")
+users = [
+    {
+        "first" : "Budi",
+        "last" : "Santoso",
+        "hobbies" : ["Run", "Watch Movies"]
+    },
+    {
+        "first" : "Cindy",
+        "last" : "Siregar",
+        "hobbies" : []
+    }
+]
+
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return "Web server is ready! by Anas Azhar 11 Komputer 2 - 16 Sept 2025"
+    if request.method == "POST":
+        first = request.form.get("first")
+        last = request.form.get("last")
+        hobbies = request.form.get("hobbies")
+
+        user = {
+            "first" : first,
+            "last" : last,
+            "hobbies" : list(hobbies.split(","))
+        }
+        users.append(user)
+
+    return render_template("index.html", users=users)
 
 if __name__ == "__main__":
     app.run(
