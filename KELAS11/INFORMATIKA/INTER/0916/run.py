@@ -17,25 +17,21 @@ def close_db():
     if db is not None:
         db.close()
 
-users = [
-    {
-        "first" : "Budi",
-        "last" : "Santoso"
-    },
-    {
-        "first" : "Cindy",
-        "last" : "Siregar"
-    }
-]
 
 @app.route("/", methods=["GET", "POST"]) 
 def index():
+    db = get_db()
+
     if request.method == "POST":
         first = request.form.get("first")
         last = request.form.get("last")
 
-        user = {"first" : first, "last" : last}
-        users.append(user)
+        db.execute("""
+            INSERT INTO User (first, last) VALUES (?, ?)
+            """, (first, last,))
+        db.commit()
+
+    users = db.execute("SELECT * FROM User;")
 
     return render_template("index.html", users=users) 
 
@@ -54,6 +50,6 @@ def isitnewyear():
 if __name__ == "__main__":
     app.run(
         debug=True,
-        host="127.0.0.1",
+        host="0.0.0.0",
         port=8080
     )
