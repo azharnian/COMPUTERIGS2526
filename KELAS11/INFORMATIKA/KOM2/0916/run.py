@@ -1,22 +1,27 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
+import sqlite3
 
 app = Flask(__name__)
 
-users = [
-    {
-        "first" : "Budi",
-        "last" : "Santoso",
-        "hobbies" : ["Run", "Watch Movies"]
-    },
-    {
-        "first" : "Cindy",
-        "last" : "Siregar",
-        "hobbies" : []
-    }
-]
+DATABASE = "./data.db"
+
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+    return db
+
+
+def close_db():
+    db = g.pop('db', None)
+    if db is not None:
+        db.close()
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    db = get_db()
+
     if request.method == "POST":
         first = request.form.get("first")
         last = request.form.get("last")
@@ -28,6 +33,8 @@ def index():
             "hobbies" : list(hobbies.split(","))
         }
         users.append(user)
+    
+    users = db.execute("SELECT * FROM users;")
 
     return render_template("index.html", users=users)
 
