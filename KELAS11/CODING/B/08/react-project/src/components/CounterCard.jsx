@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-export default function CounterCard()
+export default function CounterCard(props)
 {
   const [counter, setCounter] = useState(10);
 
@@ -14,10 +14,10 @@ export default function CounterCard()
 
   return (
     <>
-      <h1 className="heading-counter-card">This is counter {counter}</h1>
+      <h1 className="heading-counter-card">This is counter {props.counterFromApp}</h1>
       <div className="container-btn">
-          <button onClick={handlePlusBtnClick}>+</button>
-          <button onClick={handleMinBtnClick}>-</button>
+          <button onClick={props.handlePlusCounterApp}>+</button>
+          <button onClick={props.handleMinCounterApp}>-</button>
       </div>
       
     </>
