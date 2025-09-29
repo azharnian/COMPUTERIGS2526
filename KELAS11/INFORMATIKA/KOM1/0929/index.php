@@ -203,11 +203,30 @@ $people = db()->query("
 
         let myBmi = 0;
 
-        // bmiForm.addEventListener("submit", function(e){
-        //     // e.preventDefault();
+        // bmiForm.addEventListener("submit",async function (e){
+        //     e.preventDefault();
 
         //     myBmi = getBMI(weight.value, height.value);
         //     resultElement.innerHTML = myBmi;
+
+        //     try {
+        //         const res = await fetch("save_bmi.php", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/x-www-form-urlencoded",
+        //         },
+        //         body: new URLSearchParams({
+        //             name: name,
+        //             weight: weight,
+        //             height: height,
+        //         }),
+        //         });
+
+        //         const text = await res.text(); // bisa juga res.json() kalau PHP kirim JSON
+        //         console.log("Server response:", text);
+        //     } catch (error) {
+        //         console.error("Gagal kirim data:", error);
+        //     }
 
         //     this.style.display = "none";
         //     this.reset();
