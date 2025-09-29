@@ -64,8 +64,9 @@
     </div>
 
     <script>
-        function getBmi(bmi)
+        function getBmi(weight, height)
         {
+            const bmi = weight / ((height/100)**2);
             if (bmi < 18.5)
                 return "<h1>UNDERWEIGHT 🤷🏻‍♂️</h1>";
             if (bmi >= 25)
@@ -83,8 +84,7 @@
         bmiForm.addEventListener("submit", function(event){
             event.preventDefault();
 
-            const bmi = weight.value / ((height.value/100)**2);
-            result.innerHTML = getBmi(bmi);
+            result.innerHTML = getBmi(weight.value, height.value);
             bmiForm.reset();
         });
 

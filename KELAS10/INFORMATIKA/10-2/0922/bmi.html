@@ -32,6 +32,11 @@
 
         div#result {
             display: none;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
         }
 
         form h1 {
@@ -83,7 +88,10 @@
         <button>Get Result</button>
     </form>
 
-    <div id="result"></div>
+    <div id="result">
+        <h1 id="textResult">No Result</h1>
+        <button id="btnResult">Back</button>
+    </div>
 
     <script>
         function getBMI(weight, height)
@@ -103,16 +111,23 @@
         const weight = document.getElementById("weight");
         const height = document.getElementById("height");
         const result = document.getElementById("result");
+        const textResult = document.getElementById("textResult");
+        const btnResult = document.getElementById("btnResult");
 
         bmiForm.addEventListener("submit", function(e){
             e.preventDefault();
 
-            result.innerHTML = getBMI(weight.value, height.value);
+            textResult.innerHTML = getBMI(weight.value, height.value);
             this.reset();
 
             this.style.display = "none";
-            result.style.display ="block";
+            result.style.display ="flex";
         });
+
+        btnResult.addEventListener("click", function(){
+            result.style.display ="none";
+            bmiForm.style.display = "block";
+        })
     </script>
 </body>
 </html>
