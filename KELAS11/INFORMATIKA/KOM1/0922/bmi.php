@@ -9,7 +9,7 @@
             font-family : "Arial";
         }
 
-        form {
+        form, div#result {
             max-width : 400px;
             margin : 0px auto;
         }
@@ -39,7 +39,10 @@
 
         button {
             display: block;
+            width: 100%;
             margin: 0px auto;
+            background-color: black;
+            color: white;
         }
     </style>
 </head>
@@ -58,7 +61,10 @@
         <div>
             <input type="number" id="height" placeholder="Height in cm">
         </div>
-        <button>Check My BMI</button>
+        <div>
+            <button>Get Result</button>
+        </div>
+        
     </form>
 
     <div id="result">
