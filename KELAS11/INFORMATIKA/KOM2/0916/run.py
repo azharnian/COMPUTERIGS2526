@@ -30,9 +30,13 @@ def index():
         user = {
             "first" : first,
             "last" : last,
-            "hobbies" : list(hobbies.split(","))
+            "hobbies" : ",".join(hobbies.split(","))
         }
-        users.append(user)
+        db.execute("""
+            INSERT INTO users (first, last, hobbies)
+            VALUES (?, ?, ?)
+        """, (user["first"], user["last"], user["hobbies"],));
+        db.commit();
     
     users = db.execute("SELECT * FROM users;")
 

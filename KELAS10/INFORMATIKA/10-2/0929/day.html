@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Day of The Week</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form, div#result {
+            /* background-color: salmon; */
+            width: 400px;
+            margin: 0px auto;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 15px;
+            min-height: 400px;
+        }
+
+        div#result {
+            display: none;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+
+        form h1 {
+            text-align: center;
+        }
+
+        form div {
+            /* background-color: yellowgreen; */
+            padding: 20px;
+            margin: 20px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: 35px;
+            font-size: 28px;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            margin: 0px auto;
+            font-size: 28px;
+            padding: 10px;
+            border-radius: 15px;
+            border: none;
+            background-color: black;
+            color: white;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="dayForm">
+        <h1>The Day of The Week</h1>
+        <div>
+            <input type="text" id="day" placeholder="Day">
+        </div>
+        <div>
+            <input type="text" id="month" placeholder="Month">
+        </div>
+        <div>
+            <input type="text" id="year" placeholder="Year">
+        </div>
+        <div>
+            <button>Get Day</button>
+        </div>
+    </form>
+
+    <script>
+        const dayForm = document.getElementById("dayForm");
+        const day = document.getElementById("day");
+        const month = document.getElementById("month");
+        const year = document.getElementById("year");
+
+        function getDay(d, m, y)
+        {
+            const y0 = y - Math.floor((14 - m)/12);
+            const x0 = y0 + Math.floor(y0/4) - Math.floor(y0/100) + Math.floor(y0/400);
+            const m0 = m + 12 * Math.floor((14 - m)/ 12) - 2;
+            const D = (d + x0 + Math.floor(31 * m0 / 12)) % 7;
+
+            if (D === 0)
+                return "Sunday";
+            else if (D === 1)
+                return "Monday";
+            else if (D === 2)
+                return "Tuesday";
+            else if (D === 3)
+                return "Wednesday";
+            else if (D === 4)
+                return "Thursday";
+            else if (D === 5)
+                return "Friday";
+            return "Saturday";
+        }
+
+        console.log(getDay(29, 9, 2025));
+
+        dayForm.addEventListener("submit", function(){
+            const D = getDay(parseInt(day.value), 
+                            parseInt(month.value), 
+                            parseInt(year.value));
+            
+            alert("The day is " + D);
+        });
+    </script>
+</body>
+</html>

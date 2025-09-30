@@ -61,7 +61,7 @@ function db() : PDO {
     if ($pdo == null)
     {
         $pdo = new PDO("sqlite:" . DB_PATH);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $pdo->exec("
             CREATE TABLE IF NOT EXISTS bmis (

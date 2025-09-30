@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -21,8 +21,10 @@ class User(db.Model):
     __tablename__ = "users"
     id          = db.Column(db.Integer, primary_key=True)
     username    = db.Column(db.String(32), nullable=False, index=True)
+    password    = db.Column(db.String(256), nullable=False)
     email       = db.Column(db.String(128), nullable=False, index=True)
     created_at  = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
 
 class Student(db.Model):
     __tablename__ = "students"
@@ -31,6 +33,30 @@ class Student(db.Model):
     fullname    = db.Column(db.String(128), nullable=False, index=True)
     created_at  = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return "OK"
+    errors = []
+    success = False
+    if request.method == "POST":
+        username = request.form.get("username")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        retype_password = request.form.get("retype_password")
+
+        if len(username) < 5:
+            errors.append("Username must 5 len char or more")
+        
+        if User.query.filter_by(username=username).first() :
+            errors.append("Username already exists")
+        
+        if User.query.filter_by(email=email).first():
+            errors.append("Email already registered")
+
+        if not errors and password == retype_password:
+            new_user = User(username=username, email=email, password=password)
+            db.session.add(new_user)
+            db.session.commit()
+            success = True
+    
+
+    return render_template("index.html", errors=errors, success=success)
