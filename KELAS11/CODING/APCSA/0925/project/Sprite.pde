@@ -7,6 +7,8 @@ class Sprite {
   public Integer l = 100;
   public Integer w = 100;
   public Integer speed = 10;
+  
+  public Integer padding = 20;
 
   Sprite(String n, Integer a, String pic) {
     name = n;
@@ -30,8 +32,17 @@ class Sprite {
   }
 // Moving
   public void moveBy(Integer dx, Integer dy)
-  {
-    x += dx;
-    y += dy;
+  { 
+    
+    if ( (dx < 0 && x > padding)  || (dx > 0 && x < (width-padding-w)))
+    {
+      x += dx;
+    }
+    
+    if ( (dy < 0 && y > padding) || (dy > 0 && y < (height-padding-l)))
+    {
+      y += dy;
+    }
+    
   }
 }
