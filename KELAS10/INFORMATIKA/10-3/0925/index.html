@@ -95,13 +95,50 @@
         <form id="fToCForm"></form>
 
         <script>
+            function getAreaRectangle(l, w)
+            {
+                return l * w;
+            }
+
             const areaRectForm = document.getElementById("areaRectForm");
+            const rectLength = document.getElementById("rectLength");
+            const rectWidth = document.getElementById("rectWidth");
+            const rectResult = document.getElementById("rectResult");
             
             areaRectForm.addEventListener("submit", function(event){
                 event.preventDefault();
                 
-                areaRectForm.style.backgroundColor = "pink";
+                const result = getAreaRectangle(parseInt(rectLength.value), parseInt(rectWidth.value));
+                rectResult.innerHTML = "The area is : " + result;
+                this.reset();
+                rectLength.focus();
             });
+
+            function getAreaTrapezoid(a, b, h)
+            {
+                return (a + b) * h / 2;
+            }
+
+            const areaTrapezoidForm = document.getElementById("areaTrapezoidForm");
+            const trapA = document.getElementById("trapA");
+            const trapB = document.getElementById("trapB");
+            const trapHeight = document.getElementById("trapHeight");
+            const trapResult = document.getElementById("trapResult");
+
+
+            areaTrapezoidForm.addEventListener("submit", function(event){
+                event.preventDefault();
+
+                const result = getAreaTrapezoid(trapA.value, trapB.value, trapHeight.value);
+
+                trapResult.innerHTML = "The result is " + result;
+                this.reset();
+                trapA.focus();
+            });
+
+
+
+
         </script>
     </body>
 </html>

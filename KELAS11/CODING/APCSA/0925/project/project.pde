@@ -13,35 +13,19 @@ void draw() {
   background(255);
   sushi.show();
   alex.show();
-}
-
-public class Sprite {
-  public String name;
-  public Integer age;
-  public PImage img;
-  public Integer x = 0;
-  public Integer y = 0;
-  public Integer l = 100;
-  public Integer w = 100;
-  public Integer speed = 10;
-
-  Sprite(String n, Integer a, String pic) {
-    name = n;
-    age = a;
-    img = loadImage(pic);
-  }
-
-  public void say() {
-    println("Hello, my name is " + name);
-  }
-
-  public void show() {
-    image(img, x, y, l, w);
-  }
   
-  public void moveTo(Integer left, Integer down)
-  {
-    x += left;
-    y += down;
-  }
+  if (keyPressed) {
+    if (key == 'a' || key == 'A') {
+        alex.moveBy(-alex.speed, 0);
+    }
+    if (key == 's' || key == 'S') {
+        alex.moveBy(0, alex.speed);
+    }
+    if (key == 'd' || key == 'D') {
+        alex.moveBy(alex.speed, 0);
+    }
+    if (key == 'w' || key == 'W') {
+        alex.moveBy(0, -alex.speed);
+    }
+  } 
 }
