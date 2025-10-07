@@ -2,6 +2,9 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+from werkzeug.security import generate_password_hash,\
+                              check_password_hash
+
 import os
 from dotenv import load_dotenv
 from datetime import datetime
@@ -53,7 +56,9 @@ def index():
             errors.append("Email already registered")
 
         if not errors and password == retype_password:
-            new_user = User(username=username, email=email, password=password)
+            hash = generate_password_hash(password)
+            
+            new_user = User(username=username, email=email, password=hash)
             db.session.add(new_user)
             db.session.commit()
             success = True
