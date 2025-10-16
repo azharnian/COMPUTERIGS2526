@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>BMI Calculator</title>
+    </head>
+
+    <body>
+        <h1>BMI</h1>
+        <p>
+            Budi Sutanto - 10 IPA 10
+        </p>
+        <form id="bmiForm">
+            <div>
+                <input type="text" id="weight" placeholder="Weight in KG">
+            </div>
+
+            <div>
+                <input type="text" id="height" placeholder="Height in CM">
+            </div>
+            <div>
+                <button>Get Result</button>
+            </div>
+        </form>
+
+        <script>
+            function getBMI(w, h)
+            {
+                const bmi = w / (h/100)**2;
+                if (bmi < 18.5)
+                    return "Underweight";
+                else if (bmi >= 18.5 && bmi < 25)
+                    return "Normal weight";
+                else if (bmi >= 25 && bmi < 30)
+                    return "Overweight";
+                else if (bmi >= 30)
+                    return "Obesity";
+            }
+
+            const bmiForm = document.getElementById("bmiForm");
+            const weight = document.getElementById("weight");
+            const height = document.getElementById("height");
+
+            bmiForm.addEventListener("submit", function(event){
+                const result = getBMI(Number(weight.value), Number(height.value));
+                alert("Your bmi is : " + result);
+            });
+        </script>
+    </body>
+</html>

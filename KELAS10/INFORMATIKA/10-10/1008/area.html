@@ -1,0 +1,24 @@
+<script>
+    function find_area_rectangle(length, width)
+    {
+        return length * width;
+    }
+
+    alert(find_area_rectangle(10, 5));
+    alert(find_area_rectangle(20, 5));
+
+    function find_area_trapezoid(sideA, sideB, height)
+    {
+        return (sideA + sideB) * height / 2;
+    }
+
+    alert(find_area_trapezoid(10, 20, 50));
+
+    function find_area_triangle(a, b, c)
+    {
+        var s = (a + b + c)/2;
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    alert(find_area_triangle(10, 10, 10));
+</script>

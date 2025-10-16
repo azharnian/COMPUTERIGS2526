@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day of The Week</title>
+    <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                gap: 100px;
+                flex-wrap: wrap;
+            }
+
+            form {
+                width: 300px;
+                height: 300px;
+                border: 1px solid black;
+                padding: 20px;
+                /* background-color: yellowgreen; */
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            div {
+                padding: 5px 10px;
+                margin: 10px 0px;
+                height: 30px;
+            }
+
+            input {
+                width: 100%;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid black;
+                font-size: 20px;
+            }
+
+            button {
+                display: block;
+                width: 100%;
+                margin: 0px auto;
+                color: white;
+                background-color: black;
+                font-size: 20px;
+                border: none;
+            }
+
+    </style>
+</head>
+<body>
+    <form id="dayForm">
+        <h1>The Day of The Week</h1>
+        <div>
+            <input type="text" id="day" placeholder="Day">
+        </div>
+        <div>
+            <input type="text" id="month" placeholder="Month">
+        </div>
+        <div>
+            <input type="text" id="year" placeholder="Year">
+        </div>
+        <div>
+            <button>Get Result</button>
+        </div>
+    </form>
+
+    <script>
+        function getDay(d, m, y)
+        {
+            const y0 = y - Math.floor((14 - m)/12);
+            const x0 = y0 + Math.floor(y0/4) - Math.floor(y0/100) + Math.floor(y0/400);
+            const m0 = m + 12 * Math.floor((14-m)/12) - 2;
+            const D = (d + x0 + Math.floor(31 * m0 / 12)) % 7;
+
+            if (D === 0)
+                return "Minggu";
+            else if (D === 1)
+                return "Senin";
+            else if (D === 2)
+                return "Selasa";
+            else if (D === 3)
+                return "Rabu";
+            else if (D === 4)
+                return "Kamis";
+            else if (D === 5)
+                return "Jumat";
+            else if (D === 6)
+                return "Sabtu";
+        }
+
+        const dayForm = document.getElementById("dayForm");
+        const day = document.getElementById("day");
+        const month = document.getElementById("month");
+        const year = document.getElementById("year");
+
+        dayForm.addEventListener("submit", function(event){
+            event.preventDefault();
+            const today = getDay(Number(day.value), Number(month.value), Number(year.value));
+            alert("The day is " + today);
+            dayForm.reset();
+        });
+        
+    </script>
+</body>
+</html>

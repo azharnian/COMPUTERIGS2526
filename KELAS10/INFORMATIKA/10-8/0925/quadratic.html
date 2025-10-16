@@ -47,6 +47,17 @@
                 border-radius: 10px;
                 text-align: center;
             }
+
+            button {
+                width: 100%;
+                height: 50px;
+                font-size: 30px;
+                border: none;
+                outline: none;
+                border-radius: 10px;
+                color: white;
+                background-color: rgb(182, 35, 172);
+            }
         </style>
     </head>
     <body>
@@ -64,7 +75,34 @@
                 <input type="text" id="cConst" placeholder="Input your C Const">
             </div>
             
-            <button>Get Result</button>
+            <div>
+                <button>Get Result</button>
+            </div>
         </form>
+
+        <script>
+            const quadraticForm = document.getElementById("quadraticForm");
+            const aCoef = document.getElementById("aCoef");
+            const bCoef = document.getElementById("bCoef");
+            const cConst = document.getElementById("cConst");
+
+            quadraticForm.addEventListener("submit", function(){
+                const a = parseInt(aCoef.value);
+                const b = parseInt(bCoef.value);
+                const c = parseInt(cConst.value);
+
+                const D = b**2 - 4 * a * c;
+                if (D < 0)
+                {
+                    alert("No real root.")
+                } else if (D > 0)
+                {
+                    alert("Two real roots.")
+                } else if (D === 0)
+                {
+                    alert("One repeat root.")
+                }
+            });
+        </script>
     </body>
 </html>

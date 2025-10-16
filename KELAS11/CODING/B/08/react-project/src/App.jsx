@@ -1,43 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react"
+import MiniGame from "./pages/MiniGame"
 
-import "./App.css";
-import CounterCard from "./components/CounterCard";
-import OtherCard from "./components/OtherCard";
-
-import MainSection from "./components/MainSection";
-
-function App()
+export default function App()
 {
-  const [name, setName] = useState("Anas");
-  const [dark, setDark] = useState(false);
+    const [mGWinStatus, setMGWinStatus] = useState(false);
 
-  const [counterFromApp, setCounterFromApp] = useState(0);
+    const handleChangeMGWinStatus = () => {
+        setMGWinStatus(!mGWinStatus);
+    }
+    return (
+        <>
+            <h1>Mini Game</h1>
 
-  const handlePlusCounterApp = () => {
-    setCounterFromApp(counterFromApp + 1);
-  }
-
-  const handleMinCounterApp = () => {
-    setCounterFromApp(counterFromApp - 1);
-  }
-  
-  useEffect(()=>{
-    setName("Budi");
-    setDark(true);
-  }, []);
-
-  return(
-    <div>
-        <h1>{ name }</h1>
-        <h1>{dark ? "Dark Mode" : "Light Mode"}</h1>
-        <h1>{ counterFromApp }</h1>
-        <CounterCard  
-          counterFromApp={counterFromApp}
-          handlePlusCounterApp={handlePlusCounterApp}
-          handleMinCounterApp={handleMinCounterApp}
-          />
-    </div>
-  )
+            <MiniGame mGWinStatus={mGWinStatus} 
+                      handleChangeMGWinStatus={handleChangeMGWinStatus}
+            />
+        </>
+    )
 }
-
-export default App;

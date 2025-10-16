@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Length, Regexp
 
 from werkzeug.security import generate_password_hash,\
                               check_password_hash
@@ -14,6 +17,7 @@ load_dotenv()
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_URI")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SECRET_KEY"] = "THIS IS SECRET"
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -35,6 +39,13 @@ class Student(db.Model):
     nisn        = db.Column(db.String(32), nullable=False, index=True)
     fullname    = db.Column(db.String(128), nullable=False, index=True)
     created_at  = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
+# Forms
+
+class LoginForm(FlaskForm):
+    username = StringField("username", validators=[DataRequired(), Length(min=3)])
+    password = PasswordField("password", validators=[DataRequired()])
+    submit = SubmitField("login")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -65,3 +76,11 @@ def index():
     
 
     return render_template("index.html", errors=errors, success=success)
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+    return render_template("login.html", form=form)
+
+if __name__ == "__main__":
+    app.run(debug=True, host="127.0.0.1", port=8000)
