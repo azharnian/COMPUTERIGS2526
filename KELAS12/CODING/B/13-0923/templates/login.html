@@ -3,6 +3,11 @@
         <title>Login Page - Welcome</title>
     </head>
     <body>
+        {% if errors %}
+            {% for er in errors %}
+                <p style="color: red; background-color: pink;">{{ er }}</p>
+            {% endfor %}
+        {% endif %}
         <form action="" method="post">
             {{ form.hidden_tag() }}
             <h1>Login</h1>

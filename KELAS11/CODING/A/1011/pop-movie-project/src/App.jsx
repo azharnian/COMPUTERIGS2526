@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
 import NumResults from "./components/NumResults";
+
+import Main from "./components/Main";
+import BoxMovies from "./components/BoxMovies";
+
+import { fetchMovie } from "./helpers";
 
 function App()
 {
@@ -13,6 +18,25 @@ function App()
     setQuery(e.target.value);
   }
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await fetchMovie(query);
+        setMovies(data);
+      } catch(err) {
+        console.error(err);
+        setMovies([]);
+      }      
+    } 
+
+    if (query.length < 5) {
+      setMovies([]);
+      return;
+    }
+
+    fetchData();
+  }, [query]);
+
   return (
     <>
     <NavBar>
@@ -20,6 +44,14 @@ function App()
       <Search query={query} handleChangeQuery={handleChangeQuery} />
       <NumResults movies={movies} />
     </NavBar>
+    <Main>
+      <BoxMovies>
+           
+      </BoxMovies>
+      <BoxMovies>
+        
+      </BoxMovies>
+    </Main>
     </>
   )
 }

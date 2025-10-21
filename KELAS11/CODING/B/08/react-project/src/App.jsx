@@ -11,10 +11,14 @@ export default function App()
     return (
         <>
             <h1>Mini Game</h1>
-
+            {
+            mGWinStatus ? <h1>You Win!</h1> : 
+            
             <MiniGame mGWinStatus={mGWinStatus} 
                       handleChangeMGWinStatus={handleChangeMGWinStatus}
             />
+            }
+            
         </>
     )
 }
