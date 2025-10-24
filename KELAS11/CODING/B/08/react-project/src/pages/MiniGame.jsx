@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { getRandomNumber } from "../helper";
 
-export default function MiniGame( { mGWinStatus, handleChangeMGWinStatus } )
+export default function MiniGame( { score, handleChangeScore, level } )
 {
-    const [numberOne, setNumberOne] = useState(getRandomNumber(0, 10));
-    const [numberTwo, setNumberTwo] = useState(getRandomNumber(0, 10));
+    const [numberOne, setNumberOne] = useState(getRandomNumber(0, 10, level));
+    const [numberTwo, setNumberTwo] = useState(getRandomNumber(0, 10, level));
     const [userAns, setUserAns] = useState("");
-    const [score, setScore] = useState(0);
 
     const handleUserAnsChange = (event) => {
         setUserAns(event.target.value);
@@ -17,25 +16,18 @@ export default function MiniGame( { mGWinStatus, handleChangeMGWinStatus } )
         
         if (Number(userAns) === numberOne + numberTwo)
         {
-            if (score <= 5){
-                setScore(score+1);
-                setUserAns("");
-                setNumberOne(getRandomNumber(0, 10));
-                setNumberTwo(getRandomNumber(0, 10));
-            }
+            handleChangeScore();
+            setUserAns("");
+            setNumberOne(getRandomNumber(0, 10, level));
+            setNumberTwo(getRandomNumber(0, 10, level));
         }
         return
     }
 
-    useEffect(()=>{
-        if (score == 5)
-            handleChangeMGWinStatus();
-        return
-    }, [score]);
-
     return (
         <>
             <h1>Your Score : {score}</h1>
+            <h1>Level : {level + 1}</h1>
             <h1>
                 <span>{numberOne}</span> + <span>{numberTwo}</span>
             </h1>

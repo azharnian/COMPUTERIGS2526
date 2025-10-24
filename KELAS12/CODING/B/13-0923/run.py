@@ -2,9 +2,9 @@ from flask import Flask
 from flask_migrate import Migrate
 
 from config import Config
-from extensions import db
+from app.services.database import db
 
-from routes import main_bp
+from app.routes import main_bp
 
 def create_app():
     app = Flask(__name__)

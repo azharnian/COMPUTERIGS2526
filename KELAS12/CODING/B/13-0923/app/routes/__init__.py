@@ -1,10 +1,10 @@
 from flask import request, render_template, redirect, url_for, Blueprint
 from werkzeug.security import generate_password_hash,\
                                 check_password_hash
-from extensions import db
 
-from models import User
-from forms import LoginForm, ResetForm
+from app.services.database import db
+from app.models import User
+from app.forms import LoginForm, ResetForm
 
 main_bp = Blueprint("main", __name__)
 
