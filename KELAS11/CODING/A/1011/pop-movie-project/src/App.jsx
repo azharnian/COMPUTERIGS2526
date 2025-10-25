@@ -6,6 +6,8 @@ import NumResults from "./components/NumResults";
 
 import Main from "./components/Main";
 import BoxMovies from "./components/BoxMovies";
+import MovieList from "./components/MovieList";
+import MovieDetail from "./components/MovieDetail";
 
 import { fetchMovie } from "./helpers";
 
@@ -13,16 +15,25 @@ function App()
 {
   const [query, setQuery] = useState("oppenheimer");
   const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handleChangeQuery = (e) => {
     setQuery(e.target.value);
+  }
+
+  const handleOnSelectedMovie = (id) => {
+    setSelectedMovie(id);
+  }
+
+  const handleSetNullSelectedMovie = () => {
+    setSelectedMovie(null);
   }
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await fetchMovie(query);
-        setMovies(data);
+        setMovies(data.Search);
       } catch(err) {
         console.error(err);
         setMovies([]);
@@ -46,10 +57,13 @@ function App()
     </NavBar>
     <Main>
       <BoxMovies>
-           
+           {movies && <MovieList movies={movies} 
+                        handleOnSelectedMovie={handleOnSelectedMovie}/>}
       </BoxMovies>
       <BoxMovies>
-        
+          {selectedMovie && <MovieDetail selectedMovie={selectedMovie} 
+                handleSetNullSelectedMovie={handleSetNullSelectedMovie}
+          />}
       </BoxMovies>
     </Main>
     </>

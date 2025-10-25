@@ -2,6 +2,8 @@ from flask import request, render_template, redirect, url_for, Blueprint
 from werkzeug.security import generate_password_hash,\
                                 check_password_hash
 
+from flask_login import login_required
+
 from app.services.database import db
 from app.models import User
 from app.forms import LoginForm, ResetForm
@@ -47,12 +49,13 @@ def login():
         if user:
             if check_password_hash(user.password, form.password.data):
                 # return redirect("/profile")
-                return redirect(url_for("profile"))
+                return redirect(url_for("main.profile"))
         
         errors.append("Something went wrong!")
 
     return render_template("login.html", form=form, errors=errors)
 
+@login_required
 @main_bp.route("/profile")
 def profile():
     return render_template("profile.html")
@@ -62,7 +65,8 @@ def reset():
     msg = ""
     form = ResetForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data)
+        user = User.query.filter_by(username=form.username.data).first()
+        print(user)
         if user:
             user.password = generate_password_hash(form.new_password.data)
             db.session.commit()
