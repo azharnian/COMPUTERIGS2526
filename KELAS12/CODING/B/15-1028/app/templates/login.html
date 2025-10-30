@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Login Page - Welcome</title>
+    </head>
+    <body>
+        {% if errors %}
+            {% for er in errors %}
+                <p style="color: red; background-color: pink;">{{ er }}</p>
+            {% endfor %}
+        {% endif %}
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <h1>Login</h1>
+            <p>Secured Login System</p>
+
+            <div>
+                {{ form.username.label }}
+                {{ form.username }}
+            </div>
+
+             <div>
+                {{ form.password.label }}
+                {{ form.password }}
+            </div>
+
+            <div>
+                {{ form.submit }}
+            </div>
+        </form>
+    </body>
+</html>

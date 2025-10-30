@@ -13,9 +13,9 @@ function WinPage({ handleChangeMGWinStatus })
 
 export default function App()
 {
-    const [mGWinStatus, setMGWinStatus] = useState(false);
-    const [score, setScore] = useState(0);
-    const [level, setLevel] = useState(0);
+    const [mGWinStatus, setMGWinStatus] = useState(JSON.parse(localStorage.getItem("mGWinStatus")));
+    const [score, setScore] = useState(JSON.parse(localStorage.getItem("score")));
+    const [level, setLevel] = useState(JSON.parse(localStorage.getItem("level")));
 
     const handleChangeMGWinStatus = () => {
         setMGWinStatus(mGWinStatus => !mGWinStatus);
@@ -23,21 +23,36 @@ export default function App()
 
     const handleChangeScore = () => {
         setScore(score => score+1);
+        localStorage.setItem("score", JSON.stringify(score+1));
+
+        if (score % 5 === 0 && score !== 0 && !mGWinStatus)
+        {
+            handleChangeMGWinStatus();
+            handleChangeLevel();
+            handleChangeMGWinStatus();
+        }
     }
 
     const handleChangeLevel = () => {
         setLevel(level => level+1);
+        localStorage.setItem("level", JSON.stringify(level+1));
     }
 
     useEffect(()=>{
-        if (score % 5 === 0 && score !== 0)
-        {
-            handleChangeMGWinStatus();
-            handleChangeLevel();
-        }
-            
-        return
-    }, [score]);
+        if (!localStorage.getItem("mGWinStatus"))
+            localStorage.setItem("mGWinStatus", JSON.stringify(false));
+
+        if (!localStorage.getItem("score"))
+            localStorage.setItem("score", JSON.stringify(0));
+        
+        if (!localStorage.getItem("level"))
+            localStorage.setItem("level", JSON.stringify(0));
+
+        // const score = JSON.parse(localStorage.getItem("score"));
+        // const level = JSON.parse(localStorage.getItem("level"));
+
+        // console.log(score, level);
+    }, []);
 
     return (
         <>

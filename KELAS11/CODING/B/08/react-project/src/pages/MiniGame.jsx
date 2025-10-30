@@ -1,11 +1,19 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { getRandomNumber } from "../helper";
 
 export default function MiniGame( { score, handleChangeScore, level } )
 {
-    const [numberOne, setNumberOne] = useState(getRandomNumber(0, 10, level));
-    const [numberTwo, setNumberTwo] = useState(getRandomNumber(0, 10, level));
+    const [numberOne, setNumberOne] = useState(JSON.parse(localStorage.getItem("numberOne")));
+    const [numberTwo, setNumberTwo] = useState(JSON.parse(localStorage.getItem("numberTwo")));
     const [userAns, setUserAns] = useState("");
+
+    useEffect(()=>{
+        if (!localStorage.getItem("numberOne"))
+            localStorage.setItem("numberOne", JSON.stringify(getRandomNumber(0, 10, level)));
+
+        if (!localStorage.getItem("numberTwo"))
+            localStorage.setItem("numberTwo", JSON.stringify(getRandomNumber(0, 10, level)));
+    }, []);
 
     const handleUserAnsChange = (event) => {
         setUserAns(event.target.value);
@@ -18,8 +26,16 @@ export default function MiniGame( { score, handleChangeScore, level } )
         {
             handleChangeScore();
             setUserAns("");
-            setNumberOne(getRandomNumber(0, 10, level));
-            setNumberTwo(getRandomNumber(0, 10, level));
+            
+            const numberOne = getRandomNumber(0, 10, level)
+            const numberTwo = getRandomNumber(0, 10, level);
+
+            setNumberOne(numberOne);
+            localStorage.setItem("numberOne", JSON.stringify(numberOne));
+        
+            setNumberTwo(numberTwo);
+            localStorage.setItem("numberTwo", JSON.stringify(numberTwo));
+
         }
         return
     }

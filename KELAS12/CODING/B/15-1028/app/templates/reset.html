@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+</head>
+<body>
+    {% if msg %}
+        <p style="color: yellow; background-color: gray;">{{ msg }}</p>
+    {% endif %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <h1>Reset Account</h1>
+        <div>
+            {{ form.username.label }}
+            {{ form.username }}
+        </div>
+
+        <div>
+            {{ form.new_password.label }}
+            {{ form.new_password }}
+        </div>
+
+        <div>
+            {{ form.retype_password.label }}
+            {{ form.retype_password }}
+        </div>
+        <div>
+            {{ form.submit }}
+        </div>
+    </form>
+</body>
+</html>
