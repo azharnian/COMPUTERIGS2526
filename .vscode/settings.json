@@ -6,5 +6,23 @@
         "complex": "cpp",
         "valarray": "cpp",
         "cmath": "cpp"
-    }
+    },
+    "latex-workshop.latex.outDir": "out",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.recipes": [
+        { "name": "latexmk (pdf)", "tools": ["latexmk"] },
+        { "name": "xelatex (1 pass)", "tools": ["xelatex"] }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": ["-synctex=1","-interaction=nonstopmode","-file-line-error","-pdf","%DOC%"]
+        },
+        {
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": ["-synctex=1","-interaction=nonstopmode","-file-line-error","%DOC%"]
+        }
+    ]
 }

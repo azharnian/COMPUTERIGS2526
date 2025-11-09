@@ -1,0 +1,165 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\renewcommand{\arraystretch}{1.6}
+
+% Header pset untuk halaman pertama
+\newcommand{\psetheader}[4]{%
+  \noindent
+  \begin{minipage}[t]{0.6\textwidth}
+    #1\\
+    #2\\
+    #3
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\textwidth}
+    \raggedleft #4
+  \end{minipage}
+
+  \vspace{0.5\baselineskip}
+  \hrule
+  \vspace{1em}
+}
+
+\title{Matematika Dasar - Diskusi Sesi 5}
+\author{Anas Azhar \ FST - Matematika - 056413438 \ Universitas Terbuka}
+\date{\today}
+
+\begin{document}
+
+\psetheader
+  {\textit{Matematika Dasar} - Diskusi Sesi 5}
+  {Universitas Terbuka, FST - Matematika, 2025.1}
+  {Anas Azhar (056413438)}
+  {Minggu, 9 November 2025}
+
+\section*{Relasi dan Sifat-sifatnya}
+
+\begin{enumerate}
+  \item Diketahui himpunan \(A = \{3,4\}\), \(B = \{2,4,5,6\}\).
+        Buatlah relasi dalam bentuk pasangan terurut yang memenuhi:
+        \begin{enumerate}
+          \item \(R_1 = \{(a,b)\mid a \ge b;\ a\in A,\ b\in B\}\).
+          \item \(R_2 = \{(a,b)\mid a + 1 \ge b;\ a\in A,\ b\in B\}\).
+        \end{enumerate}
+
+        \textbf{Penyelesaian:}
+
+        Untuk \(R_1\):
+        \[
+          A = \{3,4\},\quad B = \{2,4,5,6\}.
+        \]
+
+        \begin{itemize}
+          \item Untuk \(a=3\): syarat \(a \ge b\) berarti \(3 \ge b\).
+                Dari \(B\) hanya \(b=2\) yang memenuhi.
+                Maka \((3,2)\in R_1\).
+          \item Untuk \(a=4\): syarat \(4 \ge b\).
+                Dari \(B\), \(b=2\) dan \(b=4\) memenuhi.
+                Maka \((4,2)\) dan \((4,4)\in R_1\).
+        \end{itemize}
+
+        Jadi
+        \[
+        \boxed{
+            R_1 = \{(3,2),(4,2),(4,4)\}.
+        }
+        \]
+
+        Untuk \(R_2\):
+        \[
+          R_2 = \{(a,b)\mid a+1 \ge b;\ a\in A,\ b\in B\}.
+        \]
+
+        \begin{itemize}
+          \item Untuk \(a=3\): \(a+1=4\), sehingga \(b \le 4\).
+                Dari \(B\): \(b=2,4\).
+                Maka \((3,2)\) dan \((3,4)\in R_2\).
+          \item Untuk \(a=4\): \(a+1=5\), sehingga \(b \le 5\).
+                Dari \(B\): \(b=2,4,5\).
+                Maka \((4,2)\), \((4,4)\), dan \((4,5)\in R_2\).
+        \end{itemize}
+
+        Jadi
+        \[
+        \boxed{
+            R_2 = \{(3,2),(3,4),(4,2),(4,4),(4,5)\}.
+        } 
+        \]
+
+  \item Diketahui \(\mathbb{Z}\) (himpunan bilangan bulat) dan relasi
+        \[
+          aRb \iff b = 3a,\quad a\in\mathbb{Z},\ b\in\mathbb{Z}.
+        \]
+        Tentukan domain \(D(R)\) dan range \(R(R)\).
+
+        \textbf{Penyelesaian:}
+
+        Relasi dapat ditulis sebagai
+        \[
+          R = \{(a,3a)\mid a\in\mathbb{Z}\}.
+        \]
+
+        \begin{itemize}
+          \item Domain \(D(R)\) adalah semua elemen pertama dari setiap pasangan:
+                untuk setiap \(a\in\mathbb{Z}\) ada \(b=3a\in\mathbb{Z}\),
+                sehingga
+                \[
+                \boxed{
+                    D(R) = \mathbb{Z}.
+                }
+                \]
+          \item Range \(R(R)\) adalah semua elemen kedua dari setiap pasangan:
+                semua berbentuk \(3a\) dengan \(a\in\mathbb{Z}\),
+                yaitu kelipatan tiga,
+                \[
+                \boxed{
+                    R(R) = \{3k \mid k\in\mathbb{Z}\}.
+                }
+                \]
+        \end{itemize}
+
+  \item Diketahui graf berarah dengan himpunan simpul
+        \[
+          S = \{1,2,3,4,5\}
+        \]
+        dan panah seperti pada gambar (2 mengarah ke 1 dan 3, 1 ke 4 dan 5, 5 ke 3, 3 ke 4).
+
+        \begin{enumerate}
+          \item Buatlah relasi dalam bentuk pasangan terurut.
+
+                Dari arah panah didapat pasangan:
+                \[
+                \boxed{
+                    R = \{(2,1),(1,4),(2,3),(1,5),(5,3),(3,4)\}.
+                }
+                \]
+
+          \item Periksa apakah relasi \(R\) bersifat refleksif, simetris, dan transitif.
+
+                \textbf{Refleksif:} \\
+                Refleksif pada \(S\) berarti \((x,x)\in R\) untuk semua
+                \(x\in S\).
+                Dari graf tidak ada loop pada setiap simpul, sehingga
+                tidak ada \((1,1),(2,2),(3,3),(4,4),(5,5)\) di dalam \(R\).
+                Jadi \(R\) \emph{bukan} refleksif.
+
+                \textbf{Simetris:} \\
+                Simetris berarti jika \((a,b)\in R\) maka \((b,a)\in R\).
+                Karena \((2,1)\in R\) tetapi \((1,2)\notin R\),
+                maka \(R\) \emph{tidak} simetris.
+
+                \textbf{Transitif:} \\
+                Transitif berarti jika \((a,b)\in R\) dan \((b,c)\in R\)
+                maka \((a,c)\in R\).
+                Perhatikan bahwa \((2,1)\in R\) dan \((1,4)\in R\),
+                sehingga jika \(R\) transitif harusnya \((2,4)\in R\).
+                Namun \((2,4)\notin R\).
+                Maka \(R\) \emph{tidak} transitif.
+        \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

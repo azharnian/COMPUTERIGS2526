@@ -1,0 +1,385 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\renewcommand{\arraystretch}{1.6}
+
+\newcommand{\psetheader}[4]{%
+  \noindent
+  \begin{minipage}[t]{0.6\textwidth}
+    #1\\
+    #2\\
+    #3
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\textwidth}
+    \raggedleft #4
+  \end{minipage}
+
+  \vspace{0.5\baselineskip}
+  \hrule
+  \vspace{1em}
+}
+
+\title{Aljabar Elementer - Tugas 2 Sesi 5}
+\author{Anas Azhar \ FST - Matematika - 056413438 \ Universitas Terbuka}
+\date{\today}
+
+\begin{document}
+
+\psetheader
+  {\textit{Aljabar Elementer} - Tugas 2 Sesi 5}
+  {Universitas Terbuka, FST - Matematika, 2025.1}
+  {Anas Azhar (056413438)}
+  {Sabtu, 8 November 2025}
+
+  % ===========================SOAL1=============================
+\section*{Soal 1}
+Untuk nilai-nilai $a$ berapakah sistem berikut ini tidak memiliki jawaban, memiliki jawabn tunggal, dan memiliki jawaban banyak:
+
+\[
+\begin{aligned}
+  x_1 + x_2 + x_3 &= 4,\\
+  x_3 &= 2,\\
+  (a^2 - 4)x_3 &= a - 2.
+\end{aligned}
+\]
+\noindent [Poin 20]
+
+\section*{Solusi :}
+\noindent Penyelesaian dengan pendekatan Matriks
+\noindent Bentuk $A \cdot X = B$
+
+\[
+\begin{bmatrix}
+  1 & 1 & 1\\
+  0 & 0 & 1\\
+  0 & 0 & a^2 - 4
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+  x_1\\
+  x_2\\
+  x_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+  4\\
+  2\\
+  a-2
+\end{bmatrix}.
+\]
+
+\noindent Matriks koefisien
+\[
+A=
+\begin{bmatrix}
+  1 & 1 & 1\\
+  0 & 0 & 1\\
+  0 & 0 & a^2 - 4 
+\end{bmatrix}
+\]
+
+\noindent Karena matriks ini berbentuk segitiga bawah, determinannya adalah
+\[
+\det(A) = 1 \times 0 \times (a^2 - 4) = 0.
+\]
+\noindent Artinya matriks $A$ \emph{singular}, sehingga sistem tidak dapat memiliki satu solusi unik.
+
+\noindent Untuk menentukan apakah sistem masih konsisten, periksa
+\[
+[A|B] = 
+\begin{bmatrix}
+  1 & 1 & 1 & 4\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & a^2 - 4 & a-2 
+\end{bmatrix}
+\]
+\noindent Dari baris kedua, diperoleh $x_3 = 2$. Substitusi ke baris ketiga:
+\[
+(a^2 - 4)\cdot 2 = a-2
+\Rightarrow 2a^2 -a -6 = 0.
+\]
+
+\noindent Persamaan ini memenuhi $a = 2$ atau $a = -\dfrac{3}{2}$.
+
+\subsection*{Kasus 1: $a \neq 2$ dan $a \neq -\frac{3}{2}$}
+
+Baris ketiga menyebabkan pertentangan sehingga
+\[
+\text{rank}(A) = 2, \quad \text{rank}([A|B]) = 3.
+\]
+Sistem tidak konsisten $\Rightarrow$ \textbf{tidak memiliki solusi}.
+
+\subsection*{Kasus 2: $a = 2$ atau $a = -\frac{3}{2}$}
+
+Baris ketiga menjadi nol seluruhnya, maka
+\[
+\text{rank}(A) = \text{rank}([A|B]) = 2 < 3.
+\]
+Sistem konsisten tetapi tak unik, sehingga memiliki
+\textbf{tak hingga banyak solusi}.
+Dari dua baris pertama:
+\[
+x_3 = 2, \quad x_1 + x_2 = 2.
+\]
+
+\subsection*{Kesimpulan}
+
+\[
+\begin{cases}
+\text{Tidak ada solusi} & \text{jika } a \neq 2,\, -\dfrac{3}{2},\\[0.4em]
+\text{Banyak solusi} & \text{jika } a = 2 \text{ atau } a = -\dfrac{3}{2},\\[0.4em]
+\text{Tidak ada solusi tunggal karena } \det(A) = 0.
+\end{cases}
+\]
+
+% ===========================SOAL2=============================
+\section*{Soal 2}
+Diketahui sistem persamaan linear
+\[
+\begin{aligned}
+x + 2y - 3z &= 0,\\
+3x - y + 5z &= 0,\\
+4x + y + (k^2 - 14)z &= 0.
+\end{aligned}
+\]
+Sistem memiliki jawaban tak hingga banyak. Tentukan nilai $k$.
+\noindent [Poin 20]
+\section*{Solusi : }
+Sistem homogen ini akan memiliki jawaban tak hingga banyak apabila
+matriks koefisiennya singular, yaitu $\det(A) = 0$.
+
+\noindent Matriks koefisien:
+\[
+A = \begin{bmatrix}
+1 & 2 & -3\\
+3 & -1 & 5\\
+4 & 1 & k^2 - 14
+\end{bmatrix}.
+\]
+
+\noindent Dengan operasi baris elementer ubah $A$ menjadi matriks segitiga atas.
+
+\[
+\begin{aligned}
+B_2 &\leftarrow B_2 - 3B_1,\\
+B_3 &\leftarrow B_3 - 4B_1,
+\end{aligned}
+\]
+sehingga diperoleh
+\[
+\begin{bmatrix}
+1 & 2 & -3\\
+0 & -7 & 14\\
+0 & -7 & k^2 - 2
+\end{bmatrix}.
+\]
+
+\noindent Kemudian
+\[
+B_3 \leftarrow B_3 - B_2
+\]
+\[
+U =
+\begin{bmatrix}
+1 & 2 & -3\\
+0 & -7 & 14\\
+0 & 0 & k^2 - 16
+\end{bmatrix},
+\]
+yang merupakan matriks segitiga atas. Maka
+\[
+\det(A) = \det(U)
+= 1 \cdot (-7) \cdot (k^2 - 16)
+= -7(k^2 - 16)
+= -7(k - 4)(k + 4).
+\]
+
+\noindent Agar sistem memiliki jawaban tak hingga banyak,
+\[
+\det(A) = 0 \quad\Rightarrow\quad -7(k - 4)(k + 4) = 0.
+\]
+Karena $-7 \neq 0$, diperoleh
+\[
+(k - 4)(k + 4) = 0 \Rightarrow k = 4 \ \text{atau}\ k = -4.
+\]
+
+\noindent Jadi, nilai $k$ yang membuat sistem memiliki jawaban tak hingga banyak
+adalah
+\[
+\boxed{k = 4 \ \text{atau}\ k = -4.}
+\]
+
+% ===========================SOAL3=============================
+\section*{Soal 3}
+Misalkan
+\[
+B=
+\begin{bmatrix}
+3 & -2 & 0\\
+-2 & 3 & 0\\
+0 & 0 & 5
+\end{bmatrix}.
+\]
+Tentukan $\det(B)$ dengan menggunakan Operasi Baris Elementer.
+\noindent [Poin 20]
+
+\section*{Solusi}
+Gunakan operasi baris elementer,
+yaitu $B_i \leftarrow B_i + cB_j$.
+\noindent Nolkan elemen di bawah pivot pertama pada kolom pertama dengan operasi
+\[
+B_2 \leftarrow B_2 + \frac{2}{3}B_1.
+\]
+Maka baris kedua menjadi
+\[
+[-2,\,3,\,0] + \tfrac{2}{3}[3,\,-2,\,0]
+= [0,\tfrac{5}{3},0].
+\]
+\noindent Sehingga matriks berubah menjadi
+\[
+\begin{bmatrix}
+3 & -2 & 0\\
+0 & \tfrac{5}{3} & 0\\
+0 & 0 & 5
+\end{bmatrix},
+\]
+yang merupakan matriks segitiga atas. Diperoleh determinannya
+\[
+\det(B) = \det
+\begin{bmatrix}
+3 & -2 & 0\\
+0 & \tfrac{5}{3} & 0\\
+0 & 0 & 5
+\end{bmatrix}.
+\]
+
+\noindent Untuk matriks segitiga atas, determinan sama dengan hasil kali elemen-elemen diagonal, sehingga
+\[
+\det(B) = 3 \cdot \frac{5}{3} \cdot 5 = 25.
+\]
+
+\noindent Jadi,
+\[
+\boxed{\det(B) = 25}.
+\]
+
+% ===========================SOAL4=============================
+\section*{Soal 4}
+Misalkan
+\[
+\left[\begin{array}{ccc|c}
+a & 0 & b & 2\\
+a & a & 4 & 4\\
+0 & a & 2 & b
+\end{array}\right]
+\]
+adalah matriks yang diperluas dari suatu sistem linier.
+Tentukan nilai $a$ dan $b$ agar sistem tersebut memiliki solusi tunggal.
+\noindent [Poin 20]
+
+\section*{Solusi : }
+Matriks koefisiennya adalah
+\[
+A =
+\begin{bmatrix}
+a & 0 & b\\
+a & a & 4\\
+0 & a & 2
+\end{bmatrix}.
+\]
+
+\noindent $\det(A)$ dengan operasi baris elementer jenis
+$B_i \leftarrow B_i + cB_j$.
+
+\noindent Pertama,
+\[
+B_2 \leftarrow B_2 - B_1
+\Rightarrow
+\begin{bmatrix}
+a & 0 & b\\
+0 & a & 4-b\\
+0 & a & 2
+\end{bmatrix}.
+\]
+
+\noindent Kemudian,
+\[
+B_3 \leftarrow B_3 - B_2
+\Rightarrow
+U =
+\begin{bmatrix}
+a & 0 & b\\
+0 & a & 4-b\\
+0 & 0 & b-2
+\end{bmatrix}.
+\]
+
+\noindent Matriks $U$ adalah segitiga atas, sehingga
+\[
+\det(A) = \det(U) = a \cdot a \cdot (b-2) = a^2(b-2).
+\]
+
+\noindent Agar sistem memiliki solusi tunggal, diperlukan
+\[
+\det(A) \neq 0 \quad \Rightarrow \quad a^2(b-2) \neq 0,
+\]
+sehingga
+\[
+a \neq 0 \quad \text{dan} \quad b \neq 2.
+\]
+
+
+\noindent Sistem memiliki solusi tunggal apabila
+\[
+\boxed{a \neq 0 \text{ dan } b \neq 2.}
+\]
+
+% ===========================SOAL5=============================
+\section*{Soal 5}
+Misalkan
+\[
+A =
+\begin{bmatrix}
+4 & 0 & 1\\
+-2 & 1 & 0\\
+-2 & 0 & 1
+\end{bmatrix}.
+\]
+Tentukan $\det(A)$ dengan menggunakan ekspansi kofaktor.
+\noindent [Poin 20]
+
+\section*{Solusi}
+Lakukan ekspansi menurut kolom kedua karena banyak elemen nol.
+
+\[
+\det(A)
+= a_{12}C_{12} + a_{22}C_{22} + a_{32}C_{32}.
+\]
+Pada kolom kedua, hanya $a_{22} = 1$ yang bukan nol, sehingga
+\[
+\det(A) = a_{22} \cdot C_{22}.
+\]
+
+\noindent Hitung kofaktor $C_{22}$:
+hapus baris ke-2 dan kolom ke-2 dari $A$,
+\[
+M_{22} =
+\begin{vmatrix}
+4 & 1\\
+-2 & 1
+\end{vmatrix}
+= (4)(1) - (1)(-2) = 4 + 2 = 6.
+\]
+Karena $C_{22} = (-1)^{2+2}M_{22} = (+1)(6) = 6$, maka
+\[
+\det(A) = a_{22}C_{22} = 1 \times 6 = 6.
+\]
+\noindent Jadi,
+\[
+\boxed{\det(A) = 6.}
+\]
+
+\end{document}

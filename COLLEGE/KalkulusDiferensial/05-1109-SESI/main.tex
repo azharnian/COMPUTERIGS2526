@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\renewcommand{\arraystretch}{1.6}
+
+% Header pset untuk halaman pertama
+\newcommand{\psetheader}[4]{%
+  \noindent
+  \begin{minipage}[t]{0.6\textwidth}
+    #1\\
+    #2\\
+    #3
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.35\textwidth}
+    \raggedleft #4
+  \end{minipage}
+
+  \vspace{0.5\baselineskip}
+  \hrule
+  \vspace{1em}
+}
+
+\title{Kalkulus Diferensial - Diskusi Sesi 5}
+\author{Anas Azhar \ FST - Matematika - 056413438 \ Universitas Terbuka}
+\date{\today}
+
+\begin{document}
+
+\psetheader
+  {\textit{Kalkulus Diferensial} - Diskusi Sesi 5}
+  {Universitas Terbuka, FST - Matematika, 2025.1}
+  {Anas Azhar (056413438)}
+  {Minggu, 9 November 2025}
+
+\section*{Soal}
+Tentukan turunan fungsi berikut menggunakan aturan rantai:
+\begin{enumerate}
+    \item \( f(x) = \left(\dfrac{x^2+1}{x+2}\right)^3 \)
+    \item \( f(x) = \sin^2(x^2 + 4x + 2) \)
+\end{enumerate}
+
+\section*{Solusi}
+
+\begin{enumerate}
+    \item Misalkan
+    \[
+        f(x) = \left(u(x)\right)^3, 
+        \quad u(x) = \frac{x^2+1}{x+2}.
+    \]
+    Dengan aturan rantai,
+    \[
+        f'(x) = 3\left(u(x)\right)^2 \cdot u'(x).
+    \]
+
+    Sekarang cari \(u'(x)\) dengan aturan hasil bagi:
+    \[
+        u(x) = \frac{x^2+1}{x+2}
+    \]
+    \[
+        u'(x) = \frac{(2x)(x+2) - (x^2+1)\cdot 1}{(x+2)^2}
+              = \frac{2x(x+2) - (x^2+1)}{(x+2)^2}
+              = \frac{2x^2+4x - x^2 - 1}{(x+2)^2}
+              = \frac{x^2+4x-1}{(x+2)^2}.
+    \]
+
+    Substitusikan kembali:
+    \[
+        f'(x) = 3\left(\frac{x^2+1}{x+2}\right)^2 \cdot \frac{x^2+4x-1}{(x+2)^2}.
+    \]
+
+    Bentuk yang sudah disederhanakan:
+    \[
+    \boxed{
+        f'(x) = 3\frac{(x^2+1)^2(x^2+4x-1)}{(x+2)^4}.
+    }
+    \]
+
+    \item Tulis fungsi sebagai komposisi:
+    \[
+        f(x) = \big(\sin(g(x))\big)^2, 
+        \quad g(x) = x^2 + 4x + 2.
+    \]
+    Dengan aturan rantai,
+    \[
+        f'(x) = 2\sin(g(x))\cos(g(x))\cdot g'(x).
+    \]
+
+    Hitung turunan dalamnya:
+    \[
+        g'(x) = 2x + 4.
+    \]
+
+    Maka
+    \[
+        f'(x) = 2\sin(x^2+4x+2)\cos(x^2+4x+2)\,(2x+4).
+    \]
+    
+    Jika menggunakan identitas \(2\sin a\cos a = \sin(2a)\), dapat juga ditulis:
+    
+    \[
+    \boxed{
+        f'(x) = (2x+4)\,\sin\big(2(x^2+4x+2)\big)
+              = (2x+4)\,\sin(2x^2+8x+4).
+    }
+    \]
+\end{enumerate}
+
+\end{document}
