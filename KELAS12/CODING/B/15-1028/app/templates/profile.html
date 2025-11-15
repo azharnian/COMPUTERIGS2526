@@ -6,7 +6,18 @@
     <title>Profile</title>
 </head>
 <body>
-    <h1>Welcome...</h1>
+    <nav style="background-color: salmon; padding: 5px;">
+        <div style="float: left;">
+            <small>Instagram for all</small>
+        </div>
+        <div style="float: right;">
+            <a href="/logout">Logout</a>
+        </div>
+        <div style="clear: both;"></div>
+    </nav>
+    
+    <h1>Welcome... {{current_user.username}}</h1>
+    <small style="font-style: italic;">email : {{ current_user.email }}</small>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum perspiciatis neque quidem sapiente eius a suscipit rerum hic consequatur aliquam!</p>
 </body>
 </html>

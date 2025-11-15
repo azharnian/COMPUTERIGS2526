@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from flask_login import login_required, current_user
 from werkzeug.security import generate_password_hash,\
                             check_password_hash
 
@@ -31,3 +32,8 @@ def signup():
             msg = "User created."
 
     return render_template("signup.html", form=form, msg=msg)
+
+@main_bp.route("/profile")
+@login_required
+def profile():
+    return render_template("profile.html")

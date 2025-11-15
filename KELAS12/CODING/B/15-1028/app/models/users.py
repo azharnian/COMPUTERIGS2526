@@ -5,8 +5,8 @@ from app.services import db
 from app.services import login_manager
 
 @login_manager.user_loader
-def load_user(user_id):
-    return User(user_id)
+def load_user(user_id: str):
+    return User.query.get(int(user_id))
 
 class User(db.Model, UserMixin):
     __tablename__ = "users"
@@ -16,12 +16,10 @@ class User(db.Model, UserMixin):
     email       = db.Column(db.String(128), nullable=False, index=True)
     created_at  = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
-    def __init__(self, id, username, password, email):
-        self.id = id
+    def __init__(self, username, password, email):
         self.username = username
         self.password = password
         self.email = email
-        self.created_at = datetime.utcnow
 
     def get_id(self):
         return str(self.id)
