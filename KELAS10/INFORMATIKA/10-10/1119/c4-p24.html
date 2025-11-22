@@ -1,0 +1,14 @@
+<script>
+    function getRandomNumber(init, final){
+
+        const random = Math.floor(Math.random() * (final - init) + init); 
+        return random;
+    }
+
+    let x = getRandomNumber(5, 14);
+    if ( x <= 10){
+        document.writeln("TRUE");
+    } else {
+        document.writeln("FALSE");
+    }
+</script>

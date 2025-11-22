@@ -3,7 +3,7 @@ import { OMDB_API_KEY } from "../config";
 export async function fetchMovie(query) {
     try {
         const res = await fetch(
-            `http://www.omdbapi.com/?s=${query}&apikey=${OMDB_API_KEY}`
+            `https://www.omdbapi.com/?s=${query}&apikey=${OMDB_API_KEY}`
         );
         const data = await res.json();
         return data;

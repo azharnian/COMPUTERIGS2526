@@ -1,14 +1,19 @@
 import { useState, useEffect } from "react";
 import { fetchMovieDetail } from "../helpers";
 
+import Loading from "./Loading";
+
 export default function MovieDetail({ handleSetNullSelectedMovie, selectedMovie }){
   const [movie, setMovie] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
       async function fetchData() {
         try {
+          setIsLoading(true);
           const data = await fetchMovieDetail(selectedMovie);
           setMovie(data);
+          setIsLoading(false);
         } catch(err) {
           console.error(err);
         }
@@ -31,39 +36,44 @@ export default function MovieDetail({ handleSetNullSelectedMovie, selectedMovie 
   } = movie;
 
   return (
-      <>
-      <header>
-          <button className="btn-back"
-                  onClick={handleSetNullSelectedMovie}
-          >
-            &#x2715;
-          </button>
-          <img src={poster} alt={`${title} poster`} />
-          <div className="details-overview">
-            <h2>{title}</h2>
+    <>
+      { isLoading ? <Loading /> : 
+        <>
+        <header>
+            <button className="btn-back"
+                    onClick={handleSetNullSelectedMovie}
+            >
+              &#x2715;
+            </button>
+            <img src={poster} alt={`${title} poster`} />
+            <div className="details-overview">
+              <h2>{title}</h2>
+              <p>
+                <span>📅</span>
+                <span>{released}</span>
+              </p>
+              <p>
+                <span>⏳</span>
+                <span>{runtime}</span>
+              </p>
+              <p>
+                <span>🌟</span>
+                <span>{imdbRating}</span>
+              </p>
+            </div>
+          </header>
+          <section>
             <p>
-              <span>📅</span>
-              <span>{released}</span>
+              <em>{plot}</em>
             </p>
-            <p>
-              <span>⏳</span>
-              <span>{runtime}</span>
-            </p>
-            <p>
-              <span>🌟</span>
-              <span>{imdbRating}</span>
-            </p>
-          </div>
-        </header>
-        <section>
-          <p>
-            <em>{plot}</em>
-          </p>
-          <p>Year: {year}</p>
-          <p>Genre: {genre}</p>
-          <p>Starring: {actors}</p>
-          <p>Directed by: {director}</p>
-        </section>
-      </>
+            <p>Year: {year}</p>
+            <p>Genre: {genre}</p>
+            <p>Starring: {actors}</p>
+            <p>Directed by: {director}</p>
+          </section>
+        </>
+      }
+    </>
+      
   )
 }

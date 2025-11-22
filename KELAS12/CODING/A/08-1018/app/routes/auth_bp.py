@@ -28,7 +28,7 @@ def reset():
             db.session.commit()
             msg = "success, reset password"
 
-    return render_template("reset.html", form=form, msg=msg)
+    return render_template("auth/reset.html", form=form, msg=msg)
 
 @auth_bp.route("/login", methods=["GET", "POST"])
 def login():

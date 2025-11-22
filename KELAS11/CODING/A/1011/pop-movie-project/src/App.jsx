@@ -8,6 +8,7 @@ import Main from "./components/Main";
 import BoxMovies from "./components/BoxMovies";
 import MovieList from "./components/MovieList";
 import MovieDetail from "./components/MovieDetail";
+import Loading from "./components/Loading";
 
 import { fetchMovie } from "./helpers";
 
@@ -16,6 +17,7 @@ function App()
   const [query, setQuery] = useState("oppenheimer");
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChangeQuery = (e) => {
     setQuery(e.target.value);
@@ -32,8 +34,10 @@ function App()
   useEffect(() => {
     async function fetchData() {
       try {
+        setIsLoading(true);
         const data = await fetchMovie(query);
         setMovies(data.Search);
+        setIsLoading(false);
       } catch(err) {
         console.error(err);
         setMovies([]);
@@ -57,7 +61,8 @@ function App()
     </NavBar>
     <Main>
       <BoxMovies>
-           {movies && <MovieList movies={movies} 
+            {isLoading ? 
+              <Loading /> : <MovieList movies={movies} 
                         handleOnSelectedMovie={handleOnSelectedMovie}/>}
       </BoxMovies>
       <BoxMovies>
