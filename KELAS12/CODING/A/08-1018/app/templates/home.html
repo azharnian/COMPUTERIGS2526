@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Home - Instagram</title>
+{% endblock %}
+{% block content %}
+    <nav style="height: 15px; line-height: 15px;">
+        <h2 style="float: left;">Instagram</h2>
+        <a href="/profile" style="float: left;">Profile</a>
+
+        <a href="/auth/logout" style="float: right;">Logout</a>
+        <div style="clear: both;"></div>
+    </nav>
+    <form class="upload-photo" method="post"">
+        <!-- Buat dengan input file upload dan caption -->
+    </form>
+
+    <div class="timeline">
+        <!-- Buat menampilkan semua postingan gambar beserta caption dari yang terbaru -->
+    </div>
+
+{% endblock %}

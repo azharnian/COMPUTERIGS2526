@@ -8,5 +8,5 @@ class ResetUserForm(FlaskForm):
     new_password        = PasswordField("new password", validators=[Length(min=8)])
     confirm_password    = PasswordField("confirm password", validators=[
                             Length(min=8), 
-                            EqualTo(new_password)])
+                            EqualTo("new_password")])
     submit              = SubmitField("submit")

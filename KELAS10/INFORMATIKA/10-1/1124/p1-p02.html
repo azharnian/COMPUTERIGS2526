@@ -1,0 +1,12 @@
+<script>
+    let petList = ["Dog"];
+    
+    petList.push("Cat");
+    petList.push("Fish");
+    petList.splice(1, 0, "Golden Bandicoot");
+    petList.splice(0, 1);
+
+    for (let item of petList){
+        document.writeln(item);
+    }
+</script>

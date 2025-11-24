@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_user, logout_user, login_required
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -19,16 +19,17 @@ def logout():
 @auth_bp.route("/reset", methods=["GET", "POST"])
 def reset():
     form = ResetUserForm()
-    msg = ""
 
     if form.validate_on_submit():
-        user = User.query.filter_by(username = form.username.data)
+        user = User.query.filter_by(username = form.username.data).first()
         if user:
             user.password = generate_password_hash(form.new_password.data)
             db.session.commit()
-            msg = "success, reset password"
+            flash("Success, reset password!", "success")
+        else:
+            flash("Something went wrong", "error")
 
-    return render_template("auth/reset.html", form=form, msg=msg)
+    return render_template("auth/reset.html", form=form)
 
 @auth_bp.route("/login", methods=["GET", "POST"])
 def login():

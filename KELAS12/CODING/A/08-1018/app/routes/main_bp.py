@@ -37,3 +37,8 @@ def signup():
 @login_required
 def profile():
     return render_template("profile.html")
+
+@main_bp.route("/home")
+@login_required
+def home():
+    return render_template("home.html")
