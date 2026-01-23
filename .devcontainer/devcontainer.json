@@ -1,0 +1,30 @@
+{
+  "name": "Environment Belajar COMPUTERIGS2526",
+  "dockerComposeFile": ".devcontainer/docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-vscode.cpptools",
+        "ms-python.black-formatter",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+
+  "remoteUser": "vscode",
+
+  "runServices": [
+    "postgres",
+    "redis",
+    "rabbitmq"
+  ]
+}
