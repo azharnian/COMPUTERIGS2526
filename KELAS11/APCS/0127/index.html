@@ -1,0 +1,14 @@
+<script>
+const values = [true, false];
+
+console.log("p\tq\tp && q\tp || q\t!p");
+
+for (const p of values) {
+  for (const q of values) {
+    console.log(
+      `${p}\t${q}\t${p && q}\t${p || q}\t${!p}`
+    );
+  }
+}
+
+</script>
