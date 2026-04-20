@@ -1,0 +1,1687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+<question type="category">
+    <category>
+        <text>$course$/top/APCSA-TO-2-20-APR-2026</text>
+    </category>
+    <info format="moodle_auto_format">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Array and Matrix Transformation</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following two methods in the same class.<br /><br />
+
+public static void changeArray(int[] arr)<br />
+{<br />
+&#160;&#160;&#160; for (int i = 0; i &lt; arr.length - 1; i++)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; arr[i] = arr[i + 1];<br />
+&#160;&#160;&#160; }<br />
+&#160;&#160;&#160; arr[arr.length - 1] = arr[0];<br />
+}<br /><br />
+
+public static void changeMatrix(int[][] mat)<br />
+{<br />
+&#160;&#160;&#160; for (int i = 0; i &lt; mat.length; i++)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; changeArray(mat[i]);<br />
+&#160;&#160;&#160; }<br />
+}<br /><br />
+
+If the current state of mat is:<br /><br />
+
+1 2 3 4<br />
+5 6 7 8<br /><br />
+
+Which matrix will result from the method call changeMatrix(mat)?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[2 3 4 1<br />6 7 8 5]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[4 1 2 3<br />8 5 6 7]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[3 1 2 3<br />7 5 6 7]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text><![CDATA[2 3 4 2<br />6 7 8 6]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Earthquake Description Output</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+The Richter scale is used to measure the strength of an earthquake. A value on the scale is a real number between 0 and 10, and each step in the scale—for example from 5.0 to 6.0—represents a tenfold increase in the strength of the earthquake.<br /><br />
+
+Consider the following class, written by a student, whose intent is to describe the effects of an earthquake.<br /><br />
+
+public class Earthquake<br />
+{<br />
+&#160;&#160;&#160; private double richter;<br /><br />
+
+&#160;&#160;&#160; /** Constructor. Sets richter to the specified value on the Richter scale. */<br />
+&#160;&#160;&#160; public Earthquake(double value)<br />
+&#160;&#160;&#160; { richter = value; }<br /><br />
+
+&#160;&#160;&#160; /** Returns the effect of the earthquake in string form. */<br />
+&#160;&#160;&#160; public String getDescription()<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; String str;<br />
+&#160;&#160;&#160;&#160;&#160;&#160; if (richter &gt;= 8.0)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; str = "Most buildings collapse.";<br />
+&#160;&#160;&#160;&#160;&#160;&#160; if (richter &gt;= 6.5)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; str = "Many buildings damaged. Some fall.";<br />
+&#160;&#160;&#160;&#160;&#160;&#160; if (richter &gt;= 4.5)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; str = "Poorly-constructed buildings collapse.";<br />
+&#160;&#160;&#160;&#160;&#160;&#160; if (richter &gt;= 3.0)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; str = "Earth shakes. No destruction.";<br />
+&#160;&#160;&#160;&#160;&#160;&#160; if (richter &gt;= 0)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; str = "Barely felt by people.";<br />
+&#160;&#160;&#160;&#160;&#160;&#160; return str;<br />
+&#160;&#160;&#160; }<br />
+}<br /><br />
+
+Consider the following segment of a client program.<br /><br />
+
+Earthquake quake = new Earthquake(magnitude);<br />
+System.out.println(quake.getDescription());<br /><br />
+
+If the Richter magnitude is 4.0, what will be output?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>Earth shakes. No destruction.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>Poorly-constructed buildings collapse.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>Barely felt by people.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>Earth shakes. No destruction. Barely felt by people.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Boolean Expressions with Equal Variables</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Suppose x, y, and z are variables of type int. Consider the following boolean conditions.<br /><br />
+
+I. (x == y) &amp;&amp; (y == z) &amp;&amp; (x == z)<br />
+II. (x == y) || (y == z) &amp;&amp; (x == z)<br />
+III. (x - y) * (x - z) * (y - z) == 0<br /><br />
+
+Which of these expressions is true for all values of z, given that x and y have the same value?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>I only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>III only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>I and II only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>II and III only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Parsing Access Log File</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+A text file named access_log.txt contains the following data with no spaces:<br /><br />
+
+2025-08-01_12:35:54,/about-us<br />
+2025-08-01_12:38:02,/ap-updates<br />
+2025-08-01_12:38:36,/test-prep<br />
+2025-08-01_12:41:17,/terms-and-conditions<br /><br />
+
+A valid Scanner object is created to read data from the text file in the following code segment.<br /><br />
+
+File f = new File("access_log.txt");<br />
+Scanner scan = new Scanner(f);<br /><br />
+
+ArrayList&lt;String&gt; accessDates = new ArrayList&lt;String&gt;();<br />
+ArrayList&lt;String&gt; accessTimes = new ArrayList&lt;String&gt;();<br />
+ArrayList&lt;String&gt; accessPages = new ArrayList&lt;String&gt;();<br /><br />
+
+while (scan.hasNext())<br />
+{<br />
+&#160;&#160;&#160; /* missing code */<br />
+}<br /><br />
+
+The code segment is supposed to assign ["2025-08-01", "2025-08-01", "2025-08-01", "2025-08-01"] to accessDates, ["12:35:54", "12:38:02", "12:38:36", "12:41:17"] to accessTimes, and ["/about-us", "/ap-updates", "/test-prep", "/terms-and-conditions"] to accessPages. Which of the following can be used to replace /* missing code */ so that the code segment works as intended?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[
+String[] fields = scan.next().split(",","_");<br />
+accessDates.add(fields[0]);<br />
+accessTimes.add(fields[1]);<br />
+accessPages.add(fields[2]);
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[
+String[] fields = scan.next().split("_",",");<br />
+accessDates.add(fields[2]);<br />
+accessTimes.add(fields[1]);<br />
+accessPages.add(fields[0]);
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text><![CDATA[
+String[] fields1 = scan.next().split(",");<br />
+String[] fields2 = fields1[0].split("_");<br />
+accessDates.add(fields2[0]);<br />
+accessTimes.add(fields2[1]);<br />
+accessPages.add(fields1[1]);
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[
+String[] fields1 = scan.next().split(",");<br />
+String[] fields2 = scan.next().split("_");<br />
+accessDates.add(fields2[0]);<br />
+accessTimes.add(fields2[1]);<br />
+accessPages.add(fields1[1]);
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Adjusting Access Times</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+A text file named access_log.txt contains the following data with no spaces:<br /><br />
+
+2025-08-01_12:35:54,/about-us<br />
+2025-08-01_12:38:02,/ap-updates<br />
+2025-08-01_12:38:36,/test-prep<br />
+2025-08-01_12:41:17,/terms-and-conditions<br /><br />
+
+A valid Scanner object is created to read data from the text file in the following code segment.<br /><br />
+
+File f = new File("access_log.txt");<br />
+Scanner scan = new Scanner(f);<br /><br />
+
+ArrayList&lt;String&gt; accessDates = new ArrayList&lt;String&gt;();<br />
+ArrayList&lt;String&gt; accessTimes = new ArrayList&lt;String&gt;();<br />
+ArrayList&lt;String&gt; accessPages = new ArrayList&lt;String&gt;();<br /><br />
+
+while (scan.hasNext())<br />
+{<br />
+&#160;&#160;&#160; /* missing code */<br />
+}<br /><br />
+
+Suppose an error has been discovered in access_log.txt and the time on every entry needs to be adjusted by adding 5 minutes. Which of the following code segments would accomplish this? Assume that all ArrayList objects have been populated correctly as described and no time values will exceed 60.<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[
+for (String accessTime : accessTimes)<br />
+{<br />
+&#160;&#160;&#160; int[] t = accessTime.split(":");<br />
+&#160;&#160;&#160; t[1] += 5;<br />
+}
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[
+for (String accessTime : accessTimes)<br />
+{<br />
+&#160;&#160;&#160; String[] t = accessTime.split(":");<br />
+&#160;&#160;&#160; t[1] = "" + (Integer.parseInt(t[1]) + 5);<br />
+}
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text><![CDATA[
+for (int i = 0; i &lt; accessTimes.size(); i++)<br />
+{<br />
+&#160;&#160;&#160; int[] t = accessTimes.get(i).split(":");<br />
+&#160;&#160;&#160; t[1] += 5;<br />
+}
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[
+for (int i = 0; i &lt; accessTimes.size(); i++)<br />
+{<br />
+&#160;&#160;&#160; String[] t = accessTimes.get(i).split(":");<br />
+&#160;&#160;&#160; t[1] = "" + (Integer.parseInt(t[1]) + 5);<br />
+}
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Array Cumulative Sum</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following method.<br /><br />
+
+public static int[] doSomething(int[] arr)<br />
+{<br />
+&#160;&#160;&#160; int num = 0;<br />
+&#160;&#160;&#160; for (int i = 0; i &lt; arr.length; i++)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; num += arr[i];<br />
+&#160;&#160;&#160;&#160;&#160;&#160; arr[i] = num;<br />
+&#160;&#160;&#160; }<br />
+&#160;&#160;&#160; return arr;<br />
+}<br /><br />
+
+An array numbers is declared and initialized as follows.<br />
+int[] numbers = {1, 3, 5, 7};<br /><br />
+
+What array will be returned as a result of the call doSomething(numbers)?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>1, 4, 7, 14</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>1, 4, 9, 16</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>7, 5, 3, 1</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>1, 4, 7, 10</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Top Seven Donors Algorithm</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+A charity organization has a large list of donor records, sorted alphabetically by name. Each record contains the amount of money donated in the current year. Which of the following represents an algorithm that will locate the top seven donors for the current year?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>Seven passes through the outer loop of an insertion sort</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>Seven passes through the outer loop of a selection sort</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>Seven recursive calls to merge sort</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>Seven passes through the loop of a binary search</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Outside Range Method</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider a method called outside that returns true if value lies outside the range from low to high, and false if value lies between low and high, inclusive.<br /><br />
+
+/** Precondition: low &lt;= high.<br />
+ * Postcondition:<br />
+ * - Returns false if value lies between low and high, inclusive.<br />
+ * - Otherwise returns true.<br />
+ */<br />
+public boolean outside(int value, int low, int high)<br />
+{ /* code */ }<br /><br />
+
+Which of the following can replace /* code */ so that outside will work as intended?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>return high &gt;= value &gt;= low</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>return low &lt; value &lt; high</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>return value &gt; low &amp;&amp; value &lt; high</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>return value &lt; low || value &gt; high</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Modifying Card Value in Array</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+A Card, which has an int value, is represented with the class below.<br /><br />
+
+public class Card<br />
+{<br />
+&#160;&#160;&#160; private int value;<br /><br />
+
+&#160;&#160;&#160; public Card(int cardValue)<br />
+&#160;&#160;&#160; { value = cardValue; }<br /><br />
+
+&#160;&#160;&#160; public int getValue()<br />
+&#160;&#160;&#160; { return value; }<br /><br />
+
+&#160;&#160;&#160; public void setValue(int newValue)<br />
+&#160;&#160;&#160; { value = newValue; }<br /><br />
+
+&#160;&#160;&#160; // Other methods are not shown.<br />
+}<br /><br />
+
+Consider an array arr of Card values. Which of the following correctly changes Card in arr[0] to have a value of 100?<br /><br />
+
+I. arr[0] = 100;<br />
+II. arr[0].setValue(100);<br />
+III. Card c = arr[0];<br />
+&#160;&#160;&#160;&#160; c.setValue(100);<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>II only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>III only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>II and III only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>I, II, and III</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Weight Comparison Method</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following class definition.<br /><br />
+
+public class Weight<br />
+{<br />
+&#160;&#160;&#160; private int pounds;<br />
+&#160;&#160;&#160; private int ounces;<br /><br />
+
+&#160;&#160;&#160; public Weight(int p, int o)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; pounds = p;<br />
+&#160;&#160;&#160;&#160;&#160;&#160; ounces = o;<br />
+&#160;&#160;&#160; }<br /><br />
+
+&#160;&#160;&#160; private int toOunces()<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; return pounds * 16 + ounces;<br />
+&#160;&#160;&#160; }<br /><br />
+
+&#160;&#160;&#160; public boolean greaterThan(Weight w)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; if (this.toOunces() &gt; w.toOunces())<br />
+&#160;&#160;&#160;&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; return true;<br />
+&#160;&#160;&#160;&#160;&#160;&#160; }<br />
+&#160;&#160;&#160;&#160;&#160;&#160; else<br />
+&#160;&#160;&#160;&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; return false;<br />
+&#160;&#160;&#160;&#160;&#160;&#160; }<br />
+&#160;&#160;&#160; }<br />
+}<br /><br />
+
+A runner class has correctly defined two Weight objects, w1 and w2. What will happen when w1.greaterThan(w2) is called?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="100" format="html">
+    <text>Either true or false will be returned, depending on the values stored in w1 and w2.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>There will be a compile-time error because the greaterThan method must be declared as static.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>toOunces cannot be used by greaterThan because it's a private method.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>The instance variables p and o cannot be accessed by the method toOunces.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Weighted Coin Flip</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+The flip method below simulates a flip of a weighted coin by returning "heads" or "tails" each time it is called. The coin is three times more likely to turn up heads than tails.<br /><br />
+
+public static String flip()<br />
+{ /* implementation code */ }<br /><br />
+
+Which of the following is correct /* implementation code */?<br /><br />
+
+I. int r = (int) (Math.random() * 100);<br />
+&#160;&#160;&#160; if (r &lt; 75)<br />
+&#160;&#160;&#160;&#160;&#160;&#160; return "heads";<br />
+&#160;&#160;&#160; else<br />
+&#160;&#160;&#160;&#160;&#160;&#160; return "tails";<br /><br />
+
+II. int r = (int) (Math.random() * 4);<br />
+&#160;&#160;&#160; if (r &lt; 3)<br />
+&#160;&#160;&#160;&#160;&#160;&#160; return "heads";<br />
+&#160;&#160;&#160; else<br />
+&#160;&#160;&#160;&#160;&#160;&#160; return "tails";<br /><br />
+
+III. double x = Math.random();<br />
+&#160;&#160;&#160; if (x &lt; 0.75)<br />
+&#160;&#160;&#160;&#160;&#160;&#160; return "heads";<br />
+&#160;&#160;&#160; else<br />
+&#160;&#160;&#160;&#160;&#160;&#160; return "tails";<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>I only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>II only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>I and II only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>I, II, and III</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Sum of Array Conditions</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following data field and method.<br /><br />
+
+private int[] arr;<br /><br />
+
+/** Precondition: arr contains at least one element. */<br />
+public void doSomething()<br />
+{<br />
+&#160;&#160;&#160; int sum1 = 0;<br />
+&#160;&#160;&#160; int sum2 = 0;<br /><br />
+
+&#160;&#160;&#160; for (int num : arr)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; if (num &gt; 0 || Math.abs(num) % 2 != 0)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; sum1 += num;<br />
+&#160;&#160;&#160;&#160;&#160;&#160; else if (num &lt; 0 &amp;&amp; Math.abs(num) % 2 == 0)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; sum2 += num;<br />
+&#160;&#160;&#160; }<br /><br />
+
+&#160;&#160;&#160; System.out.println(sum1);<br />
+&#160;&#160;&#160; System.out.println(sum2);<br />
+}<br /><br />
+
+Which of the following best describes the value of sum1?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>The sum of all positive values in arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>The sum of all positive odd values in arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>The sum of all positive values and odd negative values in arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>The sum of all positive values and even negative values in arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Sum2 Array Conditions</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following data field and method.<br /><br />
+
+private int[] arr;<br /><br />
+
+/** Precondition: arr contains at least one element. */<br />
+public void doSomething()<br />
+{<br />
+&#160;&#160;&#160; int sum1 = 0;<br />
+&#160;&#160;&#160; int sum2 = 0;<br /><br />
+
+&#160;&#160;&#160; for (int num : arr)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; if (num &gt; 0 || Math.abs(num) % 2 != 0)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; sum1 += num;<br />
+&#160;&#160;&#160;&#160;&#160;&#160; else if (num &lt; 0 &amp;&amp; Math.abs(num) % 2 == 0)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; sum2 += num;<br />
+&#160;&#160;&#160; }<br /><br />
+
+&#160;&#160;&#160; System.out.println(sum1);<br />
+&#160;&#160;&#160; System.out.println(sum2);<br />
+}<br /><br />
+
+Which of the following best describes the value of sum2?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>The sum of all negative values in arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>The sum of all negative even values in arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>The sum of all even values in arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>The sum of all negative values and positive even values in arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Array Reverse Method</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following method.<br /><br />
+
+public static void mystery(int[] arr)<br />
+{<br />
+&#160;&#160;&#160; int mid = arr.length / 2;<br />
+&#160;&#160;&#160; for (int i = 0; i &lt; mid; i++)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; int temp = arr[i];<br />
+&#160;&#160;&#160;&#160;&#160;&#160; arr[i] = arr[arr.length - i - 1];<br />
+&#160;&#160;&#160;&#160;&#160;&#160; arr[arr.length - i - 1] = temp;<br />
+&#160;&#160;&#160; }<br />
+}<br /><br />
+
+What does method mystery do?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>Searches for a given element in arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>Swaps the first and last elements of arr, and leaves the other elements unchanged</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>Reverses the elements of arr</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>Sorts arr in decreasing order</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Random Unequal Integers</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Which of the following code segments correctly stores in int variables x1 and x2 unequal integers, each of which can be between 10 and 15, inclusive?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[
+x1 = (int) (Math.random() * 6) + 10;<br />
+x2 = (int) (Math.random() * 6) + 10;
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[
+x1 = (int) (Math.random() * 5) + 10;<br />
+x2 = (int) (Math.random() * 5) + 10;
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text><![CDATA[
+x1 = (int) (Math.random() * 5) + 10;<br />
+x2 = (int) (Math.random() * 5) + 10;<br />
+while (x1 == x2)<br />
+&#160;&#160;&#160; x2 = (int) (Math.random() * 5) + 10;
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text><![CDATA[
+x1 = (int) (Math.random() * 6) + 10;<br />
+x2 = (int) (Math.random() * 6) + 10;<br />
+while (x1 == x2)<br />
+&#160;&#160;&#160; x2 = (int) (Math.random() * 6) + 10;
+    ]]></text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>String Substring Concatenation</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following data field and method.<br /><br />
+
+private ArrayList&lt;String&gt; list;<br /><br />
+
+public void mystery()<br />
+{<br />
+&#160;&#160;&#160; String str1 = "", str2 = "";<br />
+&#160;&#160;&#160; for (String s : list)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; str1 += s.substring(1);<br />
+&#160;&#160;&#160;&#160;&#160;&#160; str2 += s.substring(1, 2);<br />
+&#160;&#160;&#160; }<br />
+&#160;&#160;&#160; System.out.println(str1);<br />
+&#160;&#160;&#160; System.out.println(str2);<br />
+}<br /><br />
+
+Assume that the contents of list are:<br /><br />
+
+dog&#160;&#160;cat&#160;&#160;cow&#160;&#160;bird<br /><br />
+
+What will be output for str1 by a call to mystery?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>dccb</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>dogcatcowbird</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>oaoi</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>ogatowird</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>String Substring Second Output</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following data field and method.<br /><br />
+
+private ArrayList&lt;String&gt; list;<br /><br />
+
+public void mystery()<br />
+{<br />
+&#160;&#160;&#160; String str1 = "", str2 = "";<br />
+&#160;&#160;&#160; for (String s : list)<br />
+&#160;&#160;&#160; {<br />
+&#160;&#160;&#160;&#160;&#160;&#160; str1 += s.substring(1);<br />
+&#160;&#160;&#160;&#160;&#160;&#160; str2 += s.substring(1, 2);<br />
+&#160;&#160;&#160; }<br />
+&#160;&#160;&#160; System.out.println(str1);<br />
+&#160;&#160;&#160; System.out.println(str2);<br />
+}<br /><br />
+
+Assume that the contents of list are:<br /><br />
+
+dog&#160;&#160;cat&#160;&#160;cow&#160;&#160;bird<br /><br />
+
+What will be output for str2 by a call to mystery?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>dccb</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>dogcatcowbird</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>oaoi</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>ogatowird</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>Adding Array Elements to ArrayList</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following declarations.<br /><br />
+
+int[] arr = {2, 4, 6, 8};<br />
+ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();<br /><br />
+
+Which of the following code segments will correctly add all the elements of arr to list? (The final ordering of list elements is irrelevant.)<br /><br />
+
+I. for (int i = 0; i &lt; arr.length; i++)<br />
+&#160;&#160;&#160; list.add(arr[i]);<br /><br />
+
+II. for (int i = arr.length - 1; i &gt;= 0; i--)<br />
+&#160;&#160;&#160; list.add(arr[i]);<br /><br />
+
+III. for (int i = arr.length - 1; i &gt;= 0; i--)<br />
+&#160;&#160;&#160; list.add(i, arr[i]);<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>I only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>II only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>III only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>I and II only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>LLM Training Data Selection</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+A computer scientist is trying to train a large language model (LLM) to serve as an AI chatbot for an app. The app will be used by adults diagnosed with attention deficit disorder (ADD) to help them with scheduling daily tasks and keeping track of task completion. The LLM is being trained on transcribed conversations between adult volunteers and licensed therapists on the tactics they've used in their personal lives to successfully schedule and complete tasks.<br /><br />
+
+Which of the following training sets would be most appropriate for this computer scientist to use?<br /><br />
+
+I. Data set 1 contains an entry for each volunteer participant. Each entry contains the name of the volunteer, their volunteer ID number, their age, their home address, and their phone number.<br /><br />
+
+II. Data set 2 contains an entry for each licensed therapist. Each entry contains the name of the therapist, their therapist ID number, their years of experience, their office address, and their office phone number.<br /><br />
+
+III. Data set 3 contains an entry for each transcribed conversation. Each entry contains the conversation ID number, the volunteer ID number, the therapist ID number, the date and time of the conversation, and the transcribed text of the conversation.<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="0" format="html">
+    <text>I only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>II only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="100" format="html">
+    <text>III only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>II and III only</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+<question type="multichoice">
+  <name>
+    <text>LLM Privacy Concern</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[
+A computer scientist is trying to train a large language model (LLM) to serve as an AI chatbot for an app. The app will be used by adults diagnosed with attention deficit disorder (ADD) to help them with scheduling daily tasks and keeping track of task completion. The LLM is being trained on transcribed conversations between adult volunteers and licensed therapists on the tactics they've used in their personal lives to successfully schedule and complete tasks.<br /><br />
+
+What is the most significant privacy concern related to the conversation transcripts in data set 3 that must be addressed by the computer scientist?<br />
+]]></text>
+  </questiontext>
+
+  <generalfeedback format="html">
+    <text></text>
+  </generalfeedback>
+
+  <defaultgrade>1.0000000</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <hidden>0</hidden>
+  <idnumber></idnumber>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <showstandardinstruction>0</showstandardinstruction>
+
+  <correctfeedback format="html">
+    <text></text>
+  </correctfeedback>
+  <partiallycorrectfeedback format="html">
+    <text></text>
+  </partiallycorrectfeedback>
+  <incorrectfeedback format="html">
+    <text></text>
+  </incorrectfeedback>
+
+  <answer fraction="100" format="html">
+    <text>Some of the conversations may contain personally identifiable information.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>Some of the conversations may be too short to sufficiently train the AI.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>Some of the conversations may contain topics unrelated to attention deficit disorder.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+  <answer fraction="0" format="html">
+    <text>Some of the conversations may use profanity or discuss topics that are unsuitable for children.</text>
+    <feedback format="html">
+      <text></text>
+    </feedback>
+  </answer>
+
+</question>
+
+</quiz>

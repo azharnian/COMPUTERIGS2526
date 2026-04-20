@@ -1,8 +1,8 @@
 {
-  "name": "0313",
+  "name": "0420",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/server.js",
+  "main": "index.js",
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js"
@@ -12,9 +12,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "nanoid": "^5.1.9"
+    "express": "^5.2.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"

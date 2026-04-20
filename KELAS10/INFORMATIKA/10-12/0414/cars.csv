@@ -1,0 +1,15 @@
+id,Month,Merk,Type,Area,Sold,Exp Registration Number,Sales,Congs
+1,Mar,Honda,Jazz,Tanjung Api-Api,12,31/03/24,1728000000,972000000
+2,Mar,Nissan,Juke,Tanjung Api-Api,12,31/01/24,1728000000,996000000
+3,Feb,Honda,Brio,Tanjung Api-Api,12,31/01/24,1692000000,984000000
+4,Feb,Toyota,Innova,Veteran,12,28/02/24,1680000000,1020000000
+5,Mar,Suzuki,Swift,Plaju,12,28/02/24,1644000000,1032000000
+6,Apr,Mitsubishi,Xpander,Veteran,12,31/01/24,1608000000,996000000
+7,Jan,Honda,CRV,Tanjung Api-Api,11,28/02/24,1606000000,924000000
+8,Feb,Toyota,Innova,Plaju,11,28/02/24,1606000000,968000000
+9,Feb,Toyota,Land Cruiser,Veteran,2,31/01/24,1595000000,957000000
+10,Feb,Mitsubishi,Pajero,Tanjung Api-Api,12,31/03/24,1584000000,1020000000
+11,Mar,Nissan,Juke,Veteran,11,31/01/24,1573000000,924000000
+12,Jan,Honda,CRV,Plaju,11,28/02/24,1562000000,957000000
+13,Mar,Suzuki,Ertiga,Tanjung Api-Api,11,31/03/24,1529000000,913000000
+14,Apr,Suzuki,Swift,Tanjung Api-Api,11,28/02/24,1507000000,902000000
