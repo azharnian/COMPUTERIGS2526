@@ -1,11 +1,5 @@
 const express = require("express");
-const { 
-	createNote, 
-	getNotes, 
-	getNoteById, 
-	editNoteById, 
-	deleteNoteById 
-} = require("./controllers.js"); 
+const { createNote, getNotes, getNoteById, editNoteById, deleteNoteById } = require("./controller.js"); 
 
 const router = express.Router();
 

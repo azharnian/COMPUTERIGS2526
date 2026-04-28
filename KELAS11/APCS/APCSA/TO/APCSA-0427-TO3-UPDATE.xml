@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+<question type="category">
+    <category>
+        <text>$course$/top/APCSA-0427-TO3-UPDATE</text>
+    </category>
+</question>
+
+<!-- ===================== SOAL 1 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q1</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider these class declarations.<br><br>
+
+public class Person<br>
+{<br>
+&nbsp;&nbsp;&nbsp; ...<br>
+}<br><br>
+
+public class Teacher extends Person<br>
+{<br>
+&nbsp;&nbsp;&nbsp; ...<br>
+}<br><br>
+
+Which is a true statement?<br><br>
+
+I. Teacher inherits the constructors of Person.<br>
+II. Teacher can add new methods and private instance variables.<br>
+III. Teacher can override existing private methods of Person.<br>
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="100"><text>II only</text></answer>
+  <answer fraction="0"><text>III only</text></answer>
+  <answer fraction="0"><text>I and II only</text></answer>
+  <answer fraction="0"><text>II and III only</text></answer>
+</question>
+
+<!-- ===================== SOAL 2 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q2</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Which statement about subclass methods is false?
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="100"><text>Writing two subclass methods with the same name but different parameters is called method overriding.</text></answer>
+  <answer fraction="0"><text>A public method in a subclass that is not in its superclass is not accessible by the superclass.</text></answer>
+  <answer fraction="0"><text>A private method in a superclass is not inherited by its subclass.</text></answer>
+  <answer fraction="0"><text>Two different subclasses of the same superclass inherit the same methods of the superclass.</text></answer>
+  <answer fraction="0"><text>If Class1 is a superclass of Class2, and Class2 is a superclass of Class3, and Class2 has no overridden methods, Class3 inherits all the public methods of Class1.</text></answer>
+</question>
+
+<!-- ===================== SOAL 3 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q3</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider a program to manipulate digital images. The inheritance hierarchy is as follows:<br><br>
+
+DigitalPicture<br>
+&nbsp;&nbsp;&nbsp; ↑<br>
+Picture<br>
+&nbsp;&nbsp;&nbsp; ↑ &nbsp;&nbsp;&nbsp; ↑<br>
+Landscape&nbsp;&nbsp;&nbsp;&nbsp;Portrait<br><br>
+
+You may assume that DigitalPicture and Picture have no-argument constructors, but that Landscape and Portrait do not have any constructors. Which of the following declarations will compile?<br><br>
+
+I. DigitalPicture p = new Portrait();<br>
+II. Landscape p = new Picture();<br>
+III. DigitalPicture p = new DigitalPicture();
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="0"><text>II only</text></answer>
+  <answer fraction="0"><text>III only</text></answer>
+  <answer fraction="0"><text>I and II only</text></answer>
+  <answer fraction="100"><text>I and III only</text></answer>
+</question>
+
+<!-- ===================== SOAL 4 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q4</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following hierarchy of classes.<br><br>
+
+Bird<br>
+&nbsp;&nbsp;&nbsp; ↑ &nbsp;&nbsp;&nbsp; ↑<br>
+Parrot&nbsp;&nbsp;&nbsp;&nbsp;Owl<br>
+&nbsp;&nbsp;&nbsp; ↑<br>
+Parakeet<br><br>
+
+A program is written to print data about various birds:<br><br>
+
+public class BirdStuff<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public static void printName(Bird b) { }<br>
+&nbsp;&nbsp;&nbsp; public static void printBirdCall(Parrot p) { }<br><br>
+
+&nbsp;&nbsp;&nbsp; public static void main(String[] args)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bird bird1 = new Bird();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bird bird2 = new Parrot();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parrot parrot1 = new Parrot();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parrot parrot2 = new Parakeet();<br>
+&nbsp;&nbsp;&nbsp; }<br>
+}<br><br>
+
+Assuming that all of the given classes have no-argument constructors, which of the following segments will cause an error?
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="100"><text>printBirdCall(bird2);</text></answer>
+  <answer fraction="0"><text>printName(parrot2);</text></answer>
+  <answer fraction="0"><text>printName(bird2);</text></answer>
+  <answer fraction="0"><text>printBirdCall(parrot2);</text></answer>
+  <answer fraction="0"><text>printBirdCall(parrot1);</text></answer>
+</question>
+
+<!-- ===================== SOAL 5 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q5</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Refer to the classes below.<br><br>
+
+public class ClassA<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public void method1() { }<br>
+&nbsp;&nbsp;&nbsp; public void method2() { }<br>
+}<br><br>
+
+public class ClassB extends ClassA<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public void method1() { }<br>
+&nbsp;&nbsp;&nbsp; public void method3() { }<br>
+}<br><br>
+
+The method1 method in ClassB is an example of
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>method overloading.</text></answer>
+  <answer fraction="100"><text>method overriding.</text></answer>
+  <answer fraction="0"><text>polymorphism.</text></answer>
+  <answer fraction="0"><text>data encapsulation.</text></answer>
+  <answer fraction="0"><text>procedural abstraction.</text></answer>
+</question>
+
+<!-- ===================== SOAL 6 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q6</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Refer to the classes below.<br><br>
+
+public class ClassA<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public void method1() { }<br>
+&nbsp;&nbsp;&nbsp; public void method2() { }<br>
+}<br><br>
+
+public class ClassB extends ClassA<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public void method1() { }<br>
+&nbsp;&nbsp;&nbsp; public void method3() { }<br>
+}<br><br>
+
+Consider the following declarations in a client class.<br><br>
+
+ClassA ob1 = new ClassA();<br>
+ClassA ob2 = new ClassB();<br>
+ClassB ob3 = new ClassB();<br><br>
+
+Which of the following method calls will cause an error?<br><br>
+
+I. ob1.method3();<br>
+II. ob2.method3();<br>
+III. ob3.method2();
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="0"><text>II only</text></answer>
+  <answer fraction="0"><text>III only</text></answer>
+  <answer fraction="100"><text>I and II only</text></answer>
+  <answer fraction="0"><text>I, II, and III</text></answer>
+</question>
+
+<!-- ===================== SOAL 7 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q7</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider these class declarations.<br><br>
+
+public class Player<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public Player() { }<br>
+&nbsp;&nbsp;&nbsp; public int getMove() { return 0; }<br>
+}<br><br>
+
+public class ExpertPlayer extends Player<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public int compareTo(ExpertPlayer expert) { return 0; }<br>
+}<br><br>
+
+Which code segment in a client program will cause an error?<br><br>
+
+I.<br>
+Player p1 = new ExpertPlayer();<br>
+int x1 = p1.getMove();<br><br>
+
+II.<br>
+ExpertPlayer c1 = new ExpertPlayer();<br>
+ExpertPlayer c2 = new ExpertPlayer();<br>
+if (c1.compareTo(c2) &lt; 0)<br>
+&nbsp;&nbsp;&nbsp; x = c1.getMove();<br>
+else<br>
+&nbsp;&nbsp;&nbsp; x = c2.getMove();<br><br>
+
+III.<br>
+Player h1 = new ExpertPlayer();<br>
+Player h2 = new ExpertPlayer();<br>
+if (h1.compareTo(h2) &lt; 0)<br>
+&nbsp;&nbsp;&nbsp; x = h1.getMove();<br>
+else<br>
+&nbsp;&nbsp;&nbsp; x = h2.getMove();
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="0"><text>II only</text></answer>
+  <answer fraction="100"><text>III only</text></answer>
+  <answer fraction="0"><text>I and II only</text></answer>
+  <answer fraction="0"><text>I, II, and III</text></answer>
+</question>
+
+<!-- ===================== SOAL 8 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q8</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following class definitions.<br><br>
+
+public class Animal<br>
+{<br>
+&nbsp;&nbsp;&nbsp; private String type;<br><br>
+&nbsp;&nbsp;&nbsp; public Animal(String theType)<br>
+&nbsp;&nbsp;&nbsp; { type = theType; }<br><br>
+&nbsp;&nbsp;&nbsp; public String getType()<br>
+&nbsp;&nbsp;&nbsp; { return type; }<br>
+}<br><br>
+
+public class Dog extends Animal<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public Dog(String theType)<br>
+&nbsp;&nbsp;&nbsp; { super(theType); }<br>
+}<br><br>
+
+The following code segment appears in another class.<br><br>
+
+Animal d1 = new Animal("poodle");<br>
+Animal d2 = new Dog("schnauzer");<br>
+Dog d3 = new Dog("yorkie");<br><br>
+
+public static void display(Animal a)<br>
+{<br>
+&nbsp;&nbsp;&nbsp; System.out.println("This dog is a " + a.getType());<br>
+}<br><br>
+
+Which method calls will compile without error?<br><br>
+
+I. display(d1);<br>
+II. display(d2);<br>
+III. display(d3);
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="0"><text>II only</text></answer>
+  <answer fraction="0"><text>III only</text></answer>
+  <answer fraction="0"><text>I and II only</text></answer>
+  <answer fraction="100"><text>I, II, and III</text></answer>
+</question>
+
+<!-- ===================== SOAL 9 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q9</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following class definitions.<br><br>
+
+public class StrStuff1<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public void printSub(String str)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String s = str.substring(2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.print(s);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+}<br><br>
+
+public class StrStuff2 extends StrStuff1<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public void printSub(String str)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String s = str.substring(1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.printSub(s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.print(s);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+}<br><br>
+
+StrStuff1 p = new StrStuff2();<br>
+p.printSub("crab");<br><br>
+
+What is printed as a result?
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>crabab</text></answer>
+  <answer fraction="100"><text>brab</text></answer>
+  <answer fraction="0"><text>rabb</text></answer>
+  <answer fraction="0"><text>abb</text></answer>
+  <answer fraction="0"><text>ab</text></answer>
+</question>
+
+<!-- ===================== SOAL 10 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q10</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following class definitions.<br><br>
+
+public class Class1<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public void doSomething(int n)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n -= 4;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.print(n);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+}<br><br>
+
+public class Class2 extends Class1<br>
+{<br>
+&nbsp;&nbsp;&nbsp; public void doSomething(int n)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.doSomething(n + 3);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n *= 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.print(n);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+}<br><br>
+
+Class1 c = new Class2();<br>
+c.doSomething(8);<br><br>
+
+What is printed as a result?
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>416</text></answer>
+  <answer fraction="0"><text>422</text></answer>
+  <answer fraction="0"><text>714</text></answer>
+  <answer fraction="100"><text>716</text></answer>
+  <answer fraction="0"><text>722</text></answer>
+</question>
+
+
+<!-- ===================== SOAL 11 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q11</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following declarations in a program to find the quantity base<sup>exp</sup>.<br><br>
+
+double base = &lt;a double value&gt;;<br>
+double exp = &lt;a double value&gt;;<br><br>
+
+/* code to find power, which equals base<sup>exp</sup> */<br><br>
+
+Which is a correct replacement for<br><br>
+
+/* code to find power, which equals base<sup>exp</sup> */ ?<br><br>
+
+I.<br>
+double power;<br>
+Math m = new Math();<br>
+power = m.pow(base, exp);<br><br>
+
+II.<br>
+double power;<br>
+power = Math.pow(base, exp);<br><br>
+
+III.<br>
+int power;<br>
+power = Math.pow(base, exp);
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="100"><text>II only</text></answer>
+  <answer fraction="0"><text>III only</text></answer>
+  <answer fraction="0"><text>I and II only</text></answer>
+  <answer fraction="0"><text>I and III only</text></answer>
+</question>
+
+<!-- ===================== SOAL 12 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q12</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the squareRoot method defined below.<br><br>
+
+/** Returns a Double whose value is the square root of the value represented by d. */<br>
+public Double squareRoot(Double d)<br>
+{<br>
+&nbsp;&nbsp;&nbsp; /* implementation code */<br>
+}<br><br>
+
+Which /* implementation code */ satisfies the postcondition?<br><br>
+
+I.<br>
+double x = d;<br>
+x = Math.sqrt(x);<br>
+return x;<br><br>
+
+II.<br>
+return new Double(Math.sqrt(d.doubleValue()));<br><br>
+
+III.<br>
+return Double(Math.sqrt(d.doubleValue()));
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="100"><text>I and II only</text></answer>
+  <answer fraction="0"><text>I and III only</text></answer>
+  <answer fraction="0"><text>II and III only</text></answer>
+  <answer fraction="0"><text>I, II, and III</text></answer>
+</question>
+
+<!-- ===================== SOAL 13 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q13</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Here are some examples of negative numbers rounded to the nearest integer:<br><br>
+
+-3.5 → -4<br>
+-8.97 → -9<br>
+-5.0 → -5<br>
+-2.487 → -2<br>
+-0.2 → 0<br><br>
+
+Refer to the following declaration.<br><br>
+
+double d = -4.67;<br><br>
+
+Which of the following correctly rounds d to the nearest integer?
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>int rounded = Math.abs(d);</text></answer>
+  <answer fraction="0"><text>int rounded = (int) (Math.random() * d);</text></answer>
+  <answer fraction="100"><text>int rounded = (int) (d - 0.5);</text></answer>
+  <answer fraction="0"><text>int rounded = (int) (d + 0.5);</text></answer>
+  <answer fraction="0"><text>int rounded = Math.abs((int) (d - 0.5));</text></answer>
+</question>
+
+<!-- ===================== SOAL 14 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q14</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+A program is to simulate plant life under harsh conditions. Plants die randomly according to some probability.<br><br>
+
+public class Plant<br>
+{<br>
+&nbsp;&nbsp;&nbsp; private double probDeath;<br><br>
+
+&nbsp;&nbsp;&nbsp; public void liveOrDie()<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* statement to generate random number */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (/* test to determine if plant dies */)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp; }<br>
+}<br><br>
+
+Which of the following are correct replacements?
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text><![CDATA[double x = Math.random(); &nbsp;&nbsp; x == probDeath]]></text></answer>
+  <answer fraction="0"><text><![CDATA[double x = (int)(Math.random()); &nbsp;&nbsp; x &gt; probDeath]]></text></answer>
+  <answer fraction="100"><text><![CDATA[double x = Math.random(); &nbsp;&nbsp; x &lt; probDeath]]></text></answer>
+  <answer fraction="0"><text><![CDATA[int x = (int)(Math.random()*100); &nbsp;&nbsp; x &lt; (int)probDeath]]></text></answer>
+  <answer fraction="0"><text><![CDATA[int x = (int)(Math.random()*100)+1; &nbsp;&nbsp; x == (int)probDeath]]></text></answer>
+</question>
+
+<!-- ===================== SOAL 15 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q15</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+A program simulates 50 slips of paper numbered 1 through 50 placed in a bowl for a raffle drawing.<br><br>
+
+Which of the following statements stores in winner a random integer from 1 to 50?
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="100"><text>int winner = (int)(Math.random() * 50) + 1;</text></answer>
+  <answer fraction="0"><text>int winner = (int)(Math.random() * 50);</text></answer>
+  <answer fraction="0"><text>int winner = (int)(Math.random() * 51);</text></answer>
+  <answer fraction="0"><text>int winner = (int)(Math.random() * 51) + 1;</text></answer>
+  <answer fraction="0"><text>int winner = (int)(1 + Math.random() * 49);</text></answer>
+</question>
+
+<!-- ===================== SOAL 16 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q16</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following code segment.<br><br>
+
+Integer i = new Integer(20);<br>
+int k = i.intValue();<br><br>
+
+/* missing code */<br><br>
+
+Which of the following replacements for /* missing code */ will set i to 25?<br><br>
+
+I. i = new Integer(k + 5);<br>
+II. i += 5;<br>
+III. i = Integer.valueOf(k + 5);
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="0"><text>II only</text></answer>
+  <answer fraction="0"><text>III only</text></answer>
+  <answer fraction="100"><text>I and III only</text></answer>
+  <answer fraction="0"><text>II and III only</text></answer>
+</question>
+
+<!-- ===================== SOAL 17 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q17</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following code segment.<br><br>
+
+Integer x = new Integer(5);<br>
+Integer y = new Integer(5);<br><br>
+
+int z = x.intValue() + y.intValue();<br><br>
+
+Which of the following tests generates a compile-time error?<br><br>
+
+I. if (x == y)<br><br>
+II. if (x.equals(y))<br><br>
+III. if (x == z)
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="0"><text>II only</text></answer>
+  <answer fraction="100"><text>III only</text></answer>
+  <answer fraction="0"><text>I and II only</text></answer>
+  <answer fraction="0"><text>II and III only</text></answer>
+</question>
+
+<!-- ===================== SOAL 18 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q18</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following code segment.<br><br>
+
+Integer x = new Integer(1342);<br>
+String s = x.toString();<br>
+System.out.println(s.substring(1, 2) + s.substring(2, 3));<br><br>
+
+What is printed as a result of executing the code segment?
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>No output is produced because an exception is thrown.</text></answer>
+  <answer fraction="0"><text>No output is produced because a run-time error is thrown.</text></answer>
+  <answer fraction="100"><text>9</text></answer>
+  <answer fraction="0"><text>"9"</text></answer>
+  <answer fraction="0"><text>The memory address of x</text></answer>
+</question>
+
+<!-- ===================== SOAL 19 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q19</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following code segment.<br><br>
+
+String s1 = "dog";<br>
+String s2 = new String("dog");<br>
+String s3 = s1;<br><br>
+
+Which of the following are true?<br><br>
+
+I. s1 == s2<br>
+II. s1.equals(s2)<br>
+III. s1 == s3
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text>I only</text></answer>
+  <answer fraction="0"><text>II only</text></answer>
+  <answer fraction="100"><text>II and III only</text></answer>
+  <answer fraction="0"><text>I and II only</text></answer>
+  <answer fraction="0"><text>I, II, and III</text></answer>
+</question>
+
+<!-- ===================== SOAL 20 ===================== -->
+<question type="multichoice">
+  <name><text>APCSA-0427-TO3-Q20</text></name>
+  <questiontext format="html">
+    <text><![CDATA[
+Consider the following code segment.<br><br>
+
+String s1 = "apple";<br>
+String s2 = "banana";<br><br>
+
+Which of the following expressions is true?
+    ]]></text>
+  </questiontext>
+
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+
+  <answer fraction="0"><text><![CDATA[s1.compareTo(s2) &gt; 0]]></text></answer>
+  <answer fraction="0"><text><![CDATA[s1.compareTo(s2) == 0]]></text></answer>
+  <answer fraction="0"><text><![CDATA[s1.compareTo(s2) &gt;= 0]]></text></answer>
+  <answer fraction="100"><text><![CDATA[s1.compareTo(s2) &lt; 0]]></text></answer>
+  <answer fraction="0"><text><![CDATA[s1.compareTo(s2) &lt;= 0]]></text></answer>
+</question>
+
+</quiz>

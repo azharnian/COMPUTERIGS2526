@@ -1,27 +1,22 @@
 {
-  "name": "0313",
+  "name": "0427",
   "version": "1.0.0",
   "description": "",
   "main": "./src/server.js",
   "scripts": {
-    "start": "node ./src/server.js",
-    "dev": "nodemon ./src/server.js",
-    "lint": "npx eslint ./src/",
-    "lint:fix": "npx eslint --fix ./src/"
+    "dev" : "nodemon ./src/server.js",
+    "start": "node ./src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "nanoid": "^5.1.9"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "eslint": "^10.2.1",
-    "globals": "^17.5.0",
     "nodemon": "^3.1.14"
   }
 }

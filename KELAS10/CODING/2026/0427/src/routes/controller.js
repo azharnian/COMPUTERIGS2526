@@ -1,7 +1,7 @@
-const { nanoid } = require("nanoid");
-let notes = [];
+import { nanoid } from "nanoid";
+import notes from "../notes.js";
 
-const createNote = (req, res) => {
+export default createNote = (req, res) => {
 	const { title = "untitled", tags, body } = req.body;
 	const id = nanoid(16);
 	const createdAt = new Date().toISOString();
@@ -23,14 +23,14 @@ const createNote = (req, res) => {
 	});
 };
 
-const getNotes = (_, res) => {
+export default getNotes = (_, res) => {
 	return res.json({
 		status: "success",
 		data: { notes }
 	});
 };
 
-const getNoteById = (req, res) => {  
+export default getNoteById = (req, res) => {  
 	const { id } = req.params;
 	const note = notes.find((n) => n.id === id);
 	if (note) {
@@ -45,7 +45,7 @@ const getNoteById = (req, res) => {
 	});
 };
 
-const editNoteById = (req, res) => {
+export default editNoteById = (req, res) => {
 	const { id } = req.params;
 	const { title, tags, body } = req.body;
 	const updatedAt = new Date().toISOString();
@@ -65,7 +65,7 @@ const editNoteById = (req, res) => {
 	});
 };
 
-const deleteNoteById = (req, res) => {
+export default deleteNoteById = (req, res) => {
 	const { id } = req.params;
 	const index = notes.findIndex((n) => n.id === id);
   
@@ -81,8 +81,4 @@ const deleteNoteById = (req, res) => {
 		status: "fail",
 		message: "Catatan gagal dihapus. Id tidak ditemukan"
 	});
-};
-
-module.exports = { 
-	createNote, getNotes, getNoteById, editNoteById, deleteNoteById 
 };
