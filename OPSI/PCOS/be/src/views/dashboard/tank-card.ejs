@@ -1,0 +1,17 @@
+<div class="tank" data-tank-id="<%= tank.tankId %>">
+    <div class="tank-visual">
+        <div class="liquid" id="liq-<%= index %>" style="height:0%"></div>
+        <div class="gas gas-unknown" id="gas-<%= index %>">UNKNOWN</div>
+    </div>
+
+    <div class="tank-data">
+        <div class="title">
+            <span><%= tank.tankId %></span>
+            <span id="status-<%= index %>" class="offline">NO DATA</span>
+        </div>
+
+        <div class="legend" id="legend-<%= index %>"></div>
+        <div class="grid" id="grid-<%= index %>"></div>
+        <canvas id="chart-<%= index %>"></canvas>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+id,tanggal,nama_produk,kategori,harga,jumlah,kota
+1,2025-01-01,Lipstick Matte,Makeup,85000,3,Jakarta
+2,2025-01-02,Face Wash,Skincare,45000,5,Bandung
+3,2025-01-03,Serum Vitamin C,Skincare,120000,2,Surabaya
+4,2025-01-04,Mascara,Makeup,95000,4,Jakarta
+5,2025-01-05,Toner,Skincare,60000,6,Medan
+6,2025-01-06,Foundation,Makeup,110000,2,Jakarta
+7,2025-01-07,Sunscreen,Skincare,70000,3,Bandung
+8,2025-01-08,Blush On,Makeup,80000,5,Surabaya
+9,2025-01-09,Moisturizer,Skincare,90000,4,Medan
+10,2025-01-10,Eyeliner,Makeup,65000,3,Jakarta

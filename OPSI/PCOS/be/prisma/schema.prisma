@@ -1,0 +1,30 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = "file:./dev.db"
+}
+
+model SensorData {
+    id         String   @id
+    tankId     String
+
+    suhu       Float?
+    ph         Float?
+
+    ch4        Float?
+    co         Float?
+    nh3        Float?
+    co2        Float?
+    h2s        Float?
+
+    airQuality Float?
+
+    // waktu dari device (optional)
+    deviceTime DateTime?
+
+    // waktu dari server (source of truth)
+    createdAt  DateTime @default(now())
+}
