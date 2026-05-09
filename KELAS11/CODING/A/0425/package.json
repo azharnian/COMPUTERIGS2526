@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon ./src/server.js",
     "lint": "npx eslint ./src/",
-    "lint:fix" : "npx eslint ./src/ --fix"
+    "lint:fix": "npx eslint ./src/ --fix"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,7 @@
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "joi": "^18.2.1",
     "nanoid": "^5.1.7"
   },
   "devDependencies": {

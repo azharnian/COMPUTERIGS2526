@@ -21,8 +21,15 @@ export const createNote = (req, res, next) => {
   return response(res, 201, 'Catatan berhasil ditambahkan', { noteId: id });
 };
  
-export const getAllNotes = (_, res) => {
-  return response(res, 200, 'success', { notes: notes });
+export const getAllNotes = (req, res) => {
+  const { title } = req.validated;
+
+  if (title) {
+    const filteredNotes = notes.filter((note) => note.title === title);
+    return response(res, 200, 'success', { notes: filteredNotes });
+  }
+
+  return response(res, 200, 'success', { notes });
 };
  
 export const getNoteById = (req, res, next) => {
