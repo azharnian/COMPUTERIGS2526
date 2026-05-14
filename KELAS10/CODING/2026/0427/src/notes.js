@@ -1,1 +1,3 @@
-export const notes = [];
+const notes = [];
+
+export default notes;

@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import notes from "../notes.js";
 
-export default createNote = (req, res) => {
+export const createNote = (req, res) => {
 	const { title = "untitled", tags, body } = req.body;
 	const id = nanoid(16);
 	const createdAt = new Date().toISOString();
@@ -23,14 +23,14 @@ export default createNote = (req, res) => {
 	});
 };
 
-export default getNotes = (_, res) => {
+export const getNotes = (_, res) => {
 	return res.json({
 		status: "success",
 		data: { notes }
 	});
 };
 
-export default getNoteById = (req, res) => {  
+export const getNoteById = (req, res) => {  
 	const { id } = req.params;
 	const note = notes.find((n) => n.id === id);
 	if (note) {
@@ -45,7 +45,7 @@ export default getNoteById = (req, res) => {
 	});
 };
 
-export default editNoteById = (req, res) => {
+export const editNoteById = (req, res) => {
 	const { id } = req.params;
 	const { title, tags, body } = req.body;
 	const updatedAt = new Date().toISOString();
@@ -65,7 +65,7 @@ export default editNoteById = (req, res) => {
 	});
 };
 
-export default deleteNoteById = (req, res) => {
+export const deleteNoteById = (req, res) => {
 	const { id } = req.params;
 	const index = notes.findIndex((n) => n.id === id);
   
